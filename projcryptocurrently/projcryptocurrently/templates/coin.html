@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}CryptoCurrently Best App{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+{% endblock %}
+
+{% block header %} {% endblock %}
+
+{% block content %}
+
+<nav id="nav-bar">
+    <a href="/"> ← Back </a>
+</nav>
+
+<h1>
+    Your are currently viewing the {{ coin_name }} dashboard.
+</h1>
+
+<br><br>
+
+<h2>{{ coin_description }}</h2>
+
+<br><br>
+
+<h3>This coin's current value is ${{ value }}</h3>
+{% endblock %}

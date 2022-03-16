@@ -1,8 +1,8 @@
 from django.urls import path 
 
-from .views import index, indexhtmlview
+from .views import homepageview, coinview
 
 urlpatterns = [
-    path('', index, name='index'),
-    path('index', indexhtmlview, name='indexhtmlview')
+    path('', homepageview, name='homepagaview'),
+    path('coin/<coin_name>', coinview, name='coinview'),
 ]

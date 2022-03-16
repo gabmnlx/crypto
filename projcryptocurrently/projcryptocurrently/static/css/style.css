@@ -1,3 +1,28 @@
-h1 {
-    color: red;
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    color: hotpink;
+    background-color: darkblue;
+    margin: .5em;
+    padding: 1em 1.5em;
+    top: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    background-color: hotpink;
+    color: darkblue;
 }
