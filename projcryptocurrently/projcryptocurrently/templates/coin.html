@@ -11,19 +11,14 @@
 
 {% block content %}
 
-<nav id="nav-bar">
+<div class="main">
     <a href="/"> ← Back </a>
-</nav>
-
-<h1>
-    Your are currently viewing the {{ coin_name }} dashboard.
-</h1>
-
-<br><br>
-
-<h2>{{ coin_description }}</h2>
-
-<br><br>
-
-<h3>This coin's current value is ${{ value }}</h3>
+    <div class = "name-desc">
+        <h1 id="name">
+            {{ coin_name }}
+        </h1>
+        <h4 id="desc">{{ coin_description }}</h4>
+    </div>
+    <h3>This coin's current value is ${{ value }}</h3>
+</div>
 {% endblock %}

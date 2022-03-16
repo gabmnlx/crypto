@@ -16,26 +16,18 @@ def getCoinDesc(coin_name):
         of the platform. Among cryptocurrencies, Ether is second only to 
         Bitcoin in market capitalization.[2][3]"""
     
-    elif coin_name == "cardano":
-        return """Cardano is a public blockchain platform. It is open-source and
-        decentralized, with consensus achieved using proof of stake. It can 
-        facilitate peer-to-peer transactions with its internal cryptocurrency, 
-        ADA"""
+    elif coin_name == "usdcoin":
+        return """USD Coin (USDC) represents a major breakthrough in how we use money. Digital dollars work like other digital content — they move at the speed of the internet, can be exchanged in the same way we share content, and are cheaper and more secure than existing payment systems."""
 
-    elif coin_name == "dogecoin":
+    elif coin_name == "tether":
         return """Dogecoin (/ˈdoʊ(d)ʒkɔɪn/ DOHJ-koyn or DOHZH-koyn,[2] code: 
         DOGE, symbol: Ð) is a cryptocurrency created by software engineers Billy
         Markus and Jackson Palmer, who decided to create a payment system as a 
         "joke", making fun of the wild speculation in cryptocurrencies at the
         time."""
 
-    elif coin_name == "stellar":
-        return """Stellar, or Stellar Lumens, is an open source, decentralized 
-        protocol for digital currency to fiat money low-cost transfers which 
-        allows cross-border transactions between any pair of currencies.[2] 
-        The Stellar protocol is supported by a Delaware nonprofit corporation, 
-        the Stellar Development Foundation, though this organization does not 
-        enjoy 501(c)(3) tax-exempt status with the IRS."""
+    elif coin_name == "xrp":
+        return """Ripple is a global currency exchange and remittance network that aims to lower the cost and improve the speed of international bank transfers relative to legacy financial infrastructure. Also called the Ripple Transaction Protocol (RTXP) or Ripple protocol, it is built upon a distributed open source Internet protocol, consensus ledger and native currency called XRP (ripples). Ripple's consensus is based on the Federated Byzantine Agreement (FBA) -- a kind of middle ground between public, permissionless blockchains such as Bitcoin and private, permissioned blockchains such as Hyperledger Fabric."""
 
     elif coin_name == "binance":
         return """Binance is a cryptocurrency exchange which is the largest 
@@ -50,13 +42,13 @@ def curValue(coin_name):
     elif coin_name == "ethereum":
         return 22
     
-    elif coin_name == "cardano":
+    elif coin_name == "tether":
         return 33
 
-    elif coin_name == "dogecoin":
+    elif coin_name == "usdcoin":
         return 44
 
-    elif coin_name == "stellar":
+    elif coin_name == "xrp":
         return 55
 
     elif coin_name == "binance":
