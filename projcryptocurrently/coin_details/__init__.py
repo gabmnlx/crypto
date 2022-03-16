@@ -20,11 +20,7 @@ def getCoinDesc(coin_name):
         return """USD Coin (USDC) represents a major breakthrough in how we use money. Digital dollars work like other digital content — they move at the speed of the internet, can be exchanged in the same way we share content, and are cheaper and more secure than existing payment systems."""
 
     elif coin_name == "tether":
-        return """Dogecoin (/ˈdoʊ(d)ʒkɔɪn/ DOHJ-koyn or DOHZH-koyn,[2] code: 
-        DOGE, symbol: Ð) is a cryptocurrency created by software engineers Billy
-        Markus and Jackson Palmer, who decided to create a payment system as a 
-        "joke", making fun of the wild speculation in cryptocurrencies at the
-        time."""
+        return """Tether (often called by its symbol USDT) is a cryptocurrency that is hosted on the Ethereum and Bitcoin blockchains, among others. Its tokens are issued by the Hong Kong company Tether Limited, which in turn is controlled by the owners of Bitfinex. Tether is called a stablecoin because it was originally designed to always be worth US$1.00, maintaining $1.00 in reserves for each tether issued."""
 
     elif coin_name == "xrp":
         return """Ripple is a global currency exchange and remittance network that aims to lower the cost and improve the speed of international bank transfers relative to legacy financial infrastructure. Also called the Ripple Transaction Protocol (RTXP) or Ripple protocol, it is built upon a distributed open source Internet protocol, consensus ledger and native currency called XRP (ripples). Ripple's consensus is based on the Federated Byzantine Agreement (FBA) -- a kind of middle ground between public, permissionless blockchains such as Bitcoin and private, permissioned blockchains such as Hyperledger Fabric."""
