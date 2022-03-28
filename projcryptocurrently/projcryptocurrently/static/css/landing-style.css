@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin: 72px;
+}
+
+#landing {
+    height: calc(100vh - 144px);
+}
+
+#nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#main-text {
+    margin-top: 23vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+#space {
+    min-width: 50%;
+}
+
+.subtext {
+    width: 50%;
+    text-align: right;
+    justify-content: flex-end;
+    margin-left: auto;
+}
+
+#datetime {
+    width: 27%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.date {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.time {
+    font-size: 28px;
+}
+
+.first-col {
+    font-size: 16px;
+    width: 27%;
+}
+
+.second-col {
+    font-size: 32px;
+    width: 27%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nav-hr {
+    border: 1px solid black;
+}
+
+#crypto {
+    font-size: 64px;
+}
+
+#crypto-desc {
+    font-size: 24px;
+}

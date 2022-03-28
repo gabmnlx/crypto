@@ -4,18 +4,60 @@
 {% block title %}CryptoCurrently Best App{% endblock %}
 
 {% block styles %}
-<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static 'css/landing-style.css' %}" type="text/css">
 {% endblock %}
 
 {% block header %} {% endblock %}
 
 {% block content %}
+
 <div class="container">
+
+    <div id="landing">
+        <div id="nav">
+            <div id="datetime">
+                <div class="date">{{ date }}</div>
+                <div class="time">{{ day }}, {{ time }} PHT</div>
+            </div>
+    
+            <div class="first-col">
+                <hr class = 'nav-hr'>
+                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed 
+                        do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                    </span>
+                <hr class = 'nav-hr'>
+                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed 
+                        do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                    </span>
+                <hr class = 'nav-hr'>
+            </div>
+    
+            <div class="second-col">
+                <hr class = 'nav-hr'>
+                Features
+                <hr class = 'nav-hr'>
+                Reach Us
+                <hr class = 'nav-hr'>
+            </div>
+        </div>
+        
+        <div id="main-text">
+            <div id="crypto" class="subtext">
+                CryptoCurrently
+            </div>
+            <div id="crypto-desc" class="subtext">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="container">
     <a href="/coin/bitcoin" class="btn">Bitcoin</a>
     <a href="/coin/ethereum" class="btn">Ethereum</a>
     <a href="/coin/xrp" class="btn">XRP</a>
     <a href="/coin/usdcoin" class="btn">USD Coin</a>
     <a href="/coin/binance" class="btn">BNB</a>
     <a href="/coin/tether" class="btn">Tether</a>
-</div>
+</div> -->
 {% endblock %}
