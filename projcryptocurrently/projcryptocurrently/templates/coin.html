@@ -12,13 +12,42 @@
 {% block content %}
 
 <div class="main">
-    <a href="/"> ← Back </a>
-    <div class = "name-desc">
-        <h1 id="name">
-            {{ coin_name }}
-        </h1>
-        <h4 id="desc">{{ coin_description }}</h4>
-    </div>
-    <h3>This coin's current value is ${{ value }}</h3>
+    <p id = "back-text">BTC</p>
+    <a href="/"><img id="back-button" src="{% static 'css/left-arrow.png' %}" alt="Back Button"></a>
+    <section class = "coin-info">
+        <div class = "name-desc">
+            <h1 id="name">
+                {{ coin_name }}
+            </h1>
+            <h4 id="desc">{{ coin_description }}</h4>
+        </div>
+        <div id="exchange-container">
+            <div>
+                <h2 id="exchange-rate">${{ value }}</h2>
+                <h5 id="exchange-currency">BTC / USD</h5>
+            </div>
+            <h3>{{ rate_change }}12.67%</h3>
+        </div>
+    </section>
+    <section class = "sentiment-result">
+        <h3>Sentiment Analysis Results</h3>
+        <div class = "sentiment-container">
+            <div>
+                <h2>{{ positive }}%</h2>
+                <h4>Positive Sentiments</h4>
+            </div>
+            <div>
+                <h2>{{ negative }}%</h2>
+                <h4>Negative Sentiments</h4>
+            </div>
+            <div>
+                <h2>{{ neutral }}%</h2>
+                <h4>Neutral Sentiments</h4>
+            </div>
+        </div>
+    </section>
+    <section class = "sentiment-graphs">
+
+    </section>
 </div>
 {% endblock %}

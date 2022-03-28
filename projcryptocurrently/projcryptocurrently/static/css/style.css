@@ -5,6 +5,8 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
+    background-color: #FFEFDD;
+    overflow-x: hidden;
 }
 
 .container {
@@ -32,7 +34,12 @@ body {
 }
 
 .main {
-    margin: 60px;
+    margin: 72px;
+    position: relative;
+}
+
+#back-button {
+    width: 40px;
 }
 
 .name-desc {
@@ -43,5 +50,71 @@ body {
 
 #name {
     margin-right: 40px;
+    font-size: 64px;
     text-transform: uppercase;
+}
+
+.coin-info {
+    margin-bottom: 40px;
+}
+
+#exchange-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#exchange-container h3 {
+    background-color: white;
+    padding: 12px 20px 12px;
+    border-radius: 12px;
+    font-size: 24px;
+}
+
+#exchange-rate {
+    font-size: 48px;
+}
+
+#exchange-currency {
+    font-size: 20px;
+}
+
+.sentiment-result {
+    width: 100%;
+}
+
+.sentiment-container {
+    width: 100%;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.sentiment-container > * {
+    width: 27%;
+    max-width: 27%;
+    border-radius: 24px;
+    background-color: #3A3A3A;
+    height: calc((100vw - 144px)*.27);
+    margin-top: 28px;
+}
+
+.sentiment-container > * h2 {
+    font-size: 56px;
+    margin: 24px 0 0 24px;
+}
+
+.sentiment-container > * h4 {
+    margin-left: 24px;
+}
+
+#back-text {
+    font-weight: 700;
+    z-index: -999;
+    font-size: 400px;
+    position: absolute;
+    top: -60px;
+    right: -120px;
+    color: #F9E7D3;
 }
