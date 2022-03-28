@@ -1,3 +1,28 @@
+@font-face {
+    font-family: 'Magazine Grotesk';
+    src: local('Magazine Grotesk'), url('../css/fonts/magazinegrotesque-regular.woff') format("woff");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Magazine Grotesk';
+    src: local('Magazine Grotesk'), url('../css/fonts/magazinegrotesque-bold.woff') format("woff");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Blatant';
+    src: local('Blatant'), url('../css/fonts/blatant.woff') format("woff");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Blatant';
+    src: local('Blatant'), url('../css/fonts/blatant-bold.woff') format("woff");
+    font-weight: 700;
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -48,9 +73,16 @@ body {
     margin: 40px 0 60px;
 }
 
+#desc {
+    font-family: 'Magazine Grotesk', sans-serif;
+    font-weight: 400;
+}
+
 #name {
     margin-right: 40px;
-    font-size: 64px;
+    font-size: 68px;
+    font-family: 'Blatant', sans-serif;
+    font-weight: 400;
     text-transform: uppercase;
 }
 
@@ -69,10 +101,14 @@ body {
     padding: 12px 20px 12px;
     border-radius: 12px;
     font-size: 24px;
+    font-family: 'Magazine Grotesk', sans-serif;
+    font-weight: 700;
 }
 
 #exchange-rate {
-    font-size: 48px;
+    font-size: 60px;
+    font-family: 'Blatant', sans-serif;
+    font-weight: 400;
 }
 
 #exchange-currency {
@@ -81,6 +117,11 @@ body {
 
 .sentiment-result {
     width: 100%;
+}
+
+#sentiment-label {
+    font-family: 'Magazine Grotesk', sans-serif;
+    font-weight: 400;
 }
 
 .sentiment-container {
@@ -105,8 +146,10 @@ body {
     margin: 24px 0 0 24px;
 }
 
-.sentiment-container > * h4 {
+.sentiment-container > * p {
     margin-left: 24px;
+    font-family: 'Magazine Grotesk', sans-serif;
+    font-weight: 400;
 }
 
 #back-text {

@@ -13,7 +13,7 @@
 
 <div class="main">
     <p id = "back-text">BTC</p>
-    <a href="/"><img id="back-button" src="{% static 'css/left-arrow.png' %}" alt="Back Button"></a>
+    <a href="/"><img id="back-button" src="{% static 'css/images/left-arrow.png' %}" alt="Back Button"></a>
     <section class = "coin-info">
         <div class = "name-desc">
             <h1 id="name">
@@ -30,19 +30,19 @@
         </div>
     </section>
     <section class = "sentiment-result">
-        <h3>Sentiment Analysis Results</h3>
+        <h3 id = "sentiment-label">Sentiment Analysis Results</h3>
         <div class = "sentiment-container">
             <div>
                 <h2>{{ positive }}%</h2>
-                <h4>Positive Sentiments</h4>
+                <p>Positive Sentiments</p>
             </div>
             <div>
                 <h2>{{ negative }}%</h2>
-                <h4>Negative Sentiments</h4>
+                <p>Negative Sentiments</p>
             </div>
             <div>
                 <h2>{{ neutral }}%</h2>
-                <h4>Neutral Sentiments</h4>
+                <p>Neutral Sentiments</p>
             </div>
         </div>
     </section>
