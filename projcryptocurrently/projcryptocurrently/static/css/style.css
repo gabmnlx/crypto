@@ -30,9 +30,15 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #FFEFDD;
     overflow-x: hidden;
 }
+
+body[coin-name="Bitcoin"] { background-color: #FFEFDD; }
+body[coin-name="Ethereum"] { background-color: #DDF1FF; }
+body[coin-name="Xrp"] { background-color: #FFDDDD; }
+body[coin-name="Usdcoin"] { background-color: #DDE7FF; }
+body[coin-name="Tether"] { background-color: #DDFFF5; }
+body[coin-name="Binance"] { background-color: #FFFCDD; }
 
 .container {
     min-height: 100vh;
@@ -65,6 +71,7 @@ body {
 
 #back-button {
     width: 40px;
+    user-select: none;
 }
 
 .name-desc {
@@ -100,19 +107,26 @@ body {
     background-color: white;
     padding: 12px 20px 12px;
     border-radius: 12px;
-    font-size: 24px;
+    font-size: 28px;
     font-family: 'Magazine Grotesk', sans-serif;
     font-weight: 700;
 }
 
 #exchange-rate {
-    font-size: 60px;
+    font-size: 48px;
     font-family: 'Blatant', sans-serif;
     font-weight: 400;
 }
 
 #exchange-currency {
+    margin-top: 8px;
     font-size: 20px;
+    font-family: 'Blatant', sans-serif;
+}
+
+.percent {
+    font-family: 'Blatant', sans-serif;
+    font-size: 36px;
 }
 
 .sentiment-result {
@@ -142,8 +156,11 @@ body {
 }
 
 .sentiment-container > * h2 {
-    font-size: 56px;
+    font-size: 60px;
     margin: 24px 0 0 24px;
+    font-weight: 700;
+    font-family: 'Blatant', sans-serif;
+    font-style: normal;
 }
 
 .sentiment-container > * p {
@@ -155,9 +172,29 @@ body {
 #back-text {
     font-weight: 700;
     z-index: -999;
-    font-size: 400px;
+    font-size: 440px;
     position: absolute;
-    top: -60px;
-    right: -120px;
-    color: #F9E7D3;
+    top: -100px;
+    right: -140px;
+    font-family: 'Blatant', sans-serif;
+    user-select: none;
+}
+
+#back-text[coin-name="Bitcoin"] { color: #F9E7D3; }
+#back-text[coin-name="Ethereum"] { color: #cddfec; }
+#back-text[coin-name="Xrp"] { color: #f0d0d0; }
+#back-text[coin-name="Usdcoin"] { color: #ccd5eb; }
+#back-text[coin-name="Tether"] { color: #cae9e0; }
+#back-text[coin-name="Binance"] { color: #eeebce; }
+
+.divider {
+    width: 80%;
+    margin: 52px auto 52px;
+    border-top: 1px solid black;
+}
+
+#ngram {
+    height: 720px;
+    background-color: white;
+    border-radius: 24px;
 }

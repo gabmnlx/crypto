@@ -33,19 +33,38 @@ def getCoinDesc(coin_name):
 
 def curValue(coin_name):
     if coin_name == "bitcoin":
-        return 11
+        return "47,881.00"
 
     elif coin_name == "ethereum":
-        return 22
+        return "3,470.44"
     
     elif coin_name == "tether":
-        return 33
+        return "0.999"
 
     elif coin_name == "usdcoin":
-        return 44
+        return "1.001"
 
     elif coin_name == "xrp":
-        return 55
+        return "0.879"
 
     elif coin_name == "binance":
-        return 66
+        return "439.51"
+
+def shortName(coin_name):
+    if coin_name == "bitcoin":
+        return "BTC"
+
+    elif coin_name == "ethereum":
+        return "ETH"
+    
+    elif coin_name == "tether":
+        return "USDT"
+
+    elif coin_name == "usdcoin":
+        return "USDC"
+
+    elif coin_name == "xrp":
+        return "XRP"
+
+    elif coin_name == "binance":
+        return "BNB"
