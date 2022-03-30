@@ -11,8 +11,11 @@ import calendar
 
 def homepageview(request):
     context = {}
-    context['date'] = datetime.date(datetime.now())
-    context['time'] = datetime.time(datetime.now())
+    now = datetime.now()
+    day = now.strftime("%m/%d")
+    time = now.strftime("%H:%M")
+    context['date'] = day
+    context['time'] = time
     context['day'] = calendar.day_name[date.today().weekday()]
 
     context['bitcoin_value'] = curValue("bitcoin")
