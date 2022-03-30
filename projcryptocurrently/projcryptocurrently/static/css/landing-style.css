@@ -1,14 +1,43 @@
+@font-face {
+    font-family: 'Magazine Grotesk';
+    src: local('Magazine Grotesk'), url('../css/fonts/magazinegrotesque-regular.woff') format("woff");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Magazine Grotesk';
+    src: local('Magazine Grotesk'), url('../css/fonts/magazinegrotesque-bold.woff') format("woff");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Blatant';
+    src: local('Blatant'), url('../css/fonts/blatant.woff') format("woff");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Blatant';
+    src: local('Blatant'), url('../css/fonts/blatant-bold.woff') format("woff");
+    font-weight: 700;
+}
+
 * {
     margin: 0;
     padding: 0;
 }
 
 .container {
-    margin: 72px;
+    padding: 72px;
+    background: url(../css/images/crypto-bg.png) no-repeat;
+    background-repeat: no-repeat;
+    background-size: 1920px 100vh;
+    background-position: top right 20%;
 }
 
 #landing {
-    height: calc(100vh - 144px);
+    height: calc(100vh - 72px);
+    position: relative;
 }
 
 #nav {
@@ -18,7 +47,8 @@
 }
 
 #main-text {
-    margin-top: 23vh;
+    position: relative;
+    top: 30%;
     display: flex;
     flex-direction: column;
     justify-content: end;
@@ -36,32 +66,45 @@
 }
 
 #datetime {
-    width: 27%;
+    width: 29%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .date {
-    font-size: 32px;
-    font-weight: bold;
+    font-size: 40px;
+    font-family: 'Blatant', sans-serif;
+    font-weight: 700;
 }
 
 .time {
-    font-size: 28px;
+    font-size: 24px;
+    font-family: 'Blatant', sans-serif;
+    font-weight: 400;
 }
 
 .first-col {
     font-size: 16px;
-    width: 27%;
+    width: 29%;
+}
+
+.first-col span {
+    font-family: 'Magazine Grotesk', sans-serif;
+    font-weight: 400;
 }
 
 .second-col {
     font-size: 32px;
-    width: 27%;
+    width: 29%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.second-col span {
+    font-family: 'Magazine Grotesk', sans-serif;
+    font-weight: 400;
 }
 
 .nav-hr {
@@ -69,9 +112,150 @@
 }
 
 #crypto {
-    font-size: 64px;
+    font-size: 72px;
+    font-family: 'Blatant', sans-serif;
+    font-weight: 700;
+
 }
 
 #crypto-desc {
     font-size: 24px;
+    font-family: 'Magazine Grotesk', sans-serif;
+    font-weight: 400;
+}
+
+#coin-container {
+    height: calc(100vh - 72px);
+    display: flex;
+    flex-direction: column;
+}
+
+#coin-text {
+    font-size: 40px;
+    padding-top: 3%;
+    font-family: "Magazine Grotesk", sans-serif;
+    font-weight: 400;
+}
+
+#coins {
+    display: flex;
+    flex-flow: wrap;
+
+    justify-content: center;
+    align-items: center;
+}
+
+#coins .btn {
+    text-decoration: none;
+
+    margin: 30px;
+    width: 25%;
+    height: calc(.25 * calc(100vw - 144px));
+
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+}
+
+#coins .btn .top-text {
+    padding: 5%;
+    color: black;
+    transition: .5s;
+}
+
+#coins .btn .bottom-text {
+    padding: 5%;
+    color: black;
+    transition: .5s;
+}
+
+#coins .btn .top-text .price {
+    font-size: 2em;
+    font-family: "Blatant", sans-serif;
+    font-weight: 400;
+}
+
+#coins .btn .top-text .fluctuation {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#coins .btn .top-text .fluctuation .fluctuation-arrow {
+    height: 2em;
+}
+
+#coins .btn .top-text .fluctuation .fluctuation-percent {
+    font-family: "Blatant", sans-serif;
+    font-weight: 400;
+
+    font-size: 1.2em;
+}
+
+#coins .btn .bottom-text .coin-name {
+    font-family: "Magazine Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 52px;
+}
+
+#coins .btn .bottom-text .short-name {
+    font-family: "Magazine Grotesk", sans-serif;
+    font-weight: 400;
+
+    font-size: 1.2em;
+}
+
+#coins .btn .logo {
+    position: absolute;
+    height: 40%;
+    right: -8%;
+    top: 25%;
+    transition: .5s;
+}
+
+#coins .btn:hover .logo {
+    transform: translateX(-1%);
+    height: 50%;
+}
+
+#coins .btn:hover .top-text {
+    transform: translateY(10%);
+}
+
+#coins .btn:hover .bottom-text {
+    transform: translateY(-10%);
+}
+
+#bitcoin {
+    background-color: #FFEFDD;
+}
+
+#ethereum {
+    background-color: #DDF1FF;
+}
+
+#xrp {
+    background-color: #FFDDDD;
+}
+
+#usd {
+    background-color: #DDE7FF;
+}
+
+#bnb {
+    background-color: #FFFCDD;
+}
+
+#tether {
+    background-color: #DDFFF5;
+}
+
+.diff-font {
+    font-family: "Blatant", sans-serif;
+    font-weight: 400;
+    font-size: 1.2em;
 }

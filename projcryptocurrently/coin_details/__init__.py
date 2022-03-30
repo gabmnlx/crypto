@@ -68,3 +68,22 @@ def shortName(coin_name):
 
     elif coin_name == "binance":
         return "BNB"
+        
+def getFluctuation(coin_name):
+    if coin_name == "bitcoin":
+        return -0.81
+
+    elif coin_name == "ethereum":
+        return -0.69
+    
+    elif coin_name == "tether":
+        return 4.2
+
+    elif coin_name == "usdcoin":
+        return -7.77
+
+    elif coin_name == "xrp":
+        return 1.23
+
+    elif coin_name == "binance":
+        return 99.99
