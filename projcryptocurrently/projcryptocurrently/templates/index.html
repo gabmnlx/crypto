@@ -16,8 +16,9 @@
     <div id="landing">
         <div id="nav">
             <div id="datetime">
-                <div class="date">{{ date }}</div>
-                <div class="time">{{ day }}, {{ time }} PHT</div>
+                <div class="date" id="date" onload="showTime()"></div>
+                <div class="time" id="time" onload="showTime()"> PHT</div>
+                <script src="{% static "js/app.js" %}" type="text/javascript"></script>
             </div>
     
             <div class="first-col">
