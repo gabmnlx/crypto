@@ -35,6 +35,12 @@
     background-position: top right 20%;
 }
 
+#dayOfTheWeek {
+    color:red;
+    position: absolute;
+    opacity: 0;
+}
+
 #landing {
     height: calc(100vh - 72px);
     position: relative;
@@ -171,6 +177,9 @@
     padding: 5%;
     color: black;
     transition: .5s;
+    
+    position: relative;
+    z-index: 1;
 }
 
 #coins .btn .top-text .price {
@@ -211,6 +220,7 @@
 
 #coins .btn .logo {
     position: absolute;
+    z-index: 0;
     height: 40%;
     right: -8%;
     top: 25%;

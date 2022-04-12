@@ -5,6 +5,7 @@ function showTime() {
     let dt = current.getDate();
     let mon = current.getMonth();
     let session = "AM";
+    let day = document.getElementById("dayOfTheWeek").textContent;
   
     if (hr === 0) {
         hr = 12;
@@ -23,7 +24,7 @@ function showTime() {
     let time = hr + ":" + min + " " + session;
 
     document.getElementById("date").innerText = date;
-    document.getElementById("time").innerText = time;
+    document.getElementById("time").innerText = day + ", " + time;
 
     let t = setTimeout(function(){ showTime() }, 1000);
 }
