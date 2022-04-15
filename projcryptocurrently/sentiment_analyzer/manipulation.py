@@ -44,11 +44,11 @@ def tweets_to_tfidf(tweets,coin):
 
 coins = [bitcoin,ethereum,tether,bnb,usdc,xrp]
 coin_names = ["bitcoin","ethereum","tether","bnb","usdc","xrp"]
-for x in range(0,len(coins)-1):
+for x in range(0,len(coins)):
     tweets_to_dtm((coins[x]['cleaned_text']),coin_names[x])
     tweets_to_ngram(coins[x]['cleaned_text'],coin_names[x])
     tweets_to_tfidf(coins[x]['cleaned_text'],coin_names[x])
-    print(type(coins[x]['cleaned_text']),x)
+    print(coin_names[x])
 
 coins = [bitcoin,ethereum,tether,bnb,usdc,xrp]
 coin_names = ["bitcoin","ethereum","tether","bnb","usdc","xrp"]
@@ -72,6 +72,10 @@ tfidf_bnb, tfidf_v_bnb = tweets_to_tfidf(bnb['cleaned_text'],"bnb")
 dtm_usdc, dtm_v_usdc = tweets_to_dtm(usdc['cleaned_text'],"usdc")
 ngram_usdc, ngram_v_usdc = tweets_to_ngram(usdc['cleaned_text'],"usdc", n=2)
 tfidf_usdc, tfidf_v_usdc = tweets_to_tfidf(usdc['cleaned_text'],"usdc")
+
+dtm_xrp, dtm_v_xrp = tweets_to_dtm(xrp['cleaned_text'],"xrp")
+ngram_xrp, ngram_v_xrp = tweets_to_ngram(xrp['cleaned_text'],"xrp", n=2)
+tfidf_xrp, tfidf_v_xrp = tweets_to_tfidf(xrp['cleaned_text'],"xrp")
 
 def vector_to_frequency(vector, vectorizer):
     """
@@ -119,3 +123,10 @@ freq_ngram = vector_to_frequency(ngram_usdc, ngram_v_usdc)
 freq_ngram.to_csv('out/usdc_ngram.csv', index=False)
 freq_tfidf = vector_to_frequency(tfidf_usdc, tfidf_v_usdc)
 freq_tfidf.to_csv('out/usdc_tfidf.csv', index=False)
+
+freq_dtm = vector_to_frequency(dtm_xrp, dtm_v_xrp)
+freq_dtm.to_csv('out/xrp_dtm.csv', index=False)
+freq_ngram = vector_to_frequency(ngram_xrp, ngram_v_xrp)
+freq_ngram.to_csv('out/xrp_ngram.csv', index=False)
+freq_tfidf = vector_to_frequency(tfidf_xrp, tfidf_v_xrp)
+freq_tfidf.to_csv('out/xrp_tfidf.csv', index=False)

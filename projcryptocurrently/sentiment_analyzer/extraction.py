@@ -1,10 +1,10 @@
 import tweepy
 import pandas as pd
-import warnings
+# import warnings
 
 # Suppress all warnings
-warnings.filterwarnings("ignore")
-pd.options.mode.chained_assignment = None
+# warnings.filterwarnings("ignore")
+# pd.options.mode.chained_assignment = None
 
 # Application keys
 consumer_key = 'FvUZZRtXBHbuRFSfbrIxbVC2R'
@@ -40,3 +40,4 @@ for x in range(0,len(coin)):
     tweets = search_to_df(search_results)
     tweets.to_csv("out/" + coin[x] + ".csv", index=False)
     print("Extracting " + coin[x] + " tweets")
+    

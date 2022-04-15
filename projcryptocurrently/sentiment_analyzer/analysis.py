@@ -2,7 +2,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 import matplotlib.style as style
-from wordcloud import WordCloud
+# from wordcloud import WordCloud
 style.use('fivethirtyeight')
 sns.set(rc={'figure.figsize':(12,6)})
 
@@ -26,6 +26,10 @@ freq_tfidf_tether = pd.read_csv('out/tether_tfidf.csv', index_col=None, header=0
 freq_dtm_usdc = pd.read_csv('out/usdc_dtm.csv', index_col=None, header=0)
 freq_ngram_usdc = pd.read_csv('out/usdc_ngram.csv', index_col=None, header=0)
 freq_tfidf_usdc = pd.read_csv('out/usdc_tfidf.csv', index_col=None, header=0)
+
+freq_dtm_XRP = pd.read_csv('out/XRP_dtm.csv', index_col=None, header=0)
+freq_ngram_XRP = pd.read_csv('out/XRP_ngram.csv', index_col=None, header=0)
+freq_tfidf_XRP = pd.read_csv('out/XRP_tfidf.csv', index_col=None, header=0)
 # cleaned_tweets = pd.read_csv('out/cleaned_Bitcoin.csv', index_col=None, header=0)
 # cleaned_tweets.head()
 
@@ -66,7 +70,7 @@ plt.savefig("graphs/bitcoin_tfidf.svg")
 plt.tight_layout()
 
 bitcoin_cleaned = pd.read_csv('out/cleaned_Bitcoin.csv')
-create_wordcloud(bitcoin_cleaned,"bitcoin")
+# create_wordcloud(bitcoin_cleaned,"bitcoin")
 
 
 #ethereum
@@ -86,7 +90,7 @@ plt.savefig("graphs/ethereum_tfidf.svg")
 plt.tight_layout()
 
 ethereum_cleaned = pd.read_csv('out/cleaned_Ethereum.csv')
-create_wordcloud(ethereum_cleaned,"ethereum")
+# create_wordcloud(ethereum_cleaned,"ethereum")
 
 #Tether
 sns.barplot(data=freq_dtm_tether.head(10), x='term',
@@ -98,15 +102,13 @@ sns.barplot(data=freq_ngram_tether.head(10), x='term',
             y='frequency').set_title('Frequent terms in Ngram')
 plt.savefig("graphs/tether_ngram.svg")
 
-
-
 sns.barplot(data=freq_tfidf_tether.head(10), x='term',
             y='frequency').set_title('Frequent terms in TFIDF')
 plt.savefig("graphs/tether_tfidf.svg")
 plt.tight_layout()
 
 tether_cleaned = pd.read_csv('out/cleaned_Tether.csv')
-create_wordcloud(tether_cleaned,"tether")
+# create_wordcloud(tether_cleaned,"tether")
 
 #BNB
 sns.barplot(data=freq_dtm_bnb.head(10), x='term',
@@ -124,7 +126,7 @@ plt.savefig("graphs/bnb_tfidf.svg")
 plt.tight_layout()
 
 bnb_cleaned = pd.read_csv('out/cleaned_BNB.csv')
-create_wordcloud(bnb_cleaned,"BNB")
+# create_wordcloud(bnb_cleaned,"BNB")
 
 #USDC
 sns.barplot(data=freq_dtm_usdc.head(10), x='term',
@@ -142,4 +144,22 @@ plt.savefig("graphs/usdc_tfidf.svg")
 plt.tight_layout()
 
 usdc_cleaned = pd.read_csv('out/cleaned_USD Coin.csv')
-create_wordcloud(usdc_cleaned,"USDC")
+# create_wordcloud(usdc_cleaned,"USDC")
+
+#XRP
+sns.barplot(data=freq_dtm_XRP.head(10), x='term',
+            y='frequency').set_title('Frequent terms in DTM')
+plt.tight_layout()
+plt.savefig("graphs/XRP_dtm.svg")
+
+sns.barplot(data=freq_ngram_XRP.head(10), x='term',
+            y='frequency').set_title('Frequent terms in Ngram')
+plt.savefig("graphs/XRP_ngram.svg")
+
+sns.barplot(data=freq_tfidf_XRP.head(10), x='term',
+            y='frequency').set_title('Frequent terms in TFIDF')
+plt.savefig("graphs/XRP_tfidf.svg")
+plt.tight_layout()
+
+XRP_cleaned = pd.read_csv('out/cleaned_USD Coin.csv')
+# create_wordcloud(XRP_cleaned,"XRP")

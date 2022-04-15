@@ -48,7 +48,7 @@ def analyze(inputfile):
     
     return [ave_positive*100,ave_negative*100,compound/count*100]
 
-coins = ["cleaned_Bitcoin.csv","cleaned_BNB.csv","cleaned_Ethereum.csv","cleaned_Tether.csv","cleaned_USD Coin.csv"]
+coins = ["cleaned_Bitcoin.csv","cleaned_BNB.csv","cleaned_Ethereum.csv","cleaned_Tether.csv","cleaned_USD Coin.csv", "cleaned_XRP.csv"]
 for x in coins:
     print(x.split('_')[1])
     y = pd.read_csv("out/" +x)
