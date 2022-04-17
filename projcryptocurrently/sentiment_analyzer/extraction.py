@@ -33,11 +33,12 @@ def search_to_df(search_results):
     return tweets_df
 
 # Extract tweets
-coin = ["Bitcoin","BNB","Ethereum","Tether","USD Coin","XRP"]
-for x in range(0,len(coin)):
-    api = create_api(consumer_key, consumer_key_secret)
-    search_results = search_tweets(api,coin[x], ignore_rt=True, max_tweets=400)
-    tweets = search_to_df(search_results)
-    tweets.to_csv("out/" + coin[x] + ".csv", index=False)
-    print("Extracting " + coin[x] + " tweets")
+def extract():
+    coin = ["Bitcoin","BNB","Ethereum","Tether","USD Coin","XRP"]
+    for x in range(0,len(coin)):
+        api = create_api(consumer_key, consumer_key_secret)
+        search_results = search_tweets(api,coin[x], ignore_rt=True, max_tweets=400)
+        tweets = search_to_df(search_results)
+        tweets.to_csv("out/" + coin[x] + ".csv", index=False)
+        print("Extracting " + coin[x] + " tweets")
     

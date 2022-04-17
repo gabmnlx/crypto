@@ -33,22 +33,23 @@ function showTime() {
 // getting coin values
 
 const btcElement = document.getElementById("btc-price")
-var btcPrice = btcElement.textContent + " stock"
+var btcPrice = btcElement.textContent //+ " stock"
+let btcPrices = [0, btcPrice]
 
 const ethElement = document.getElementById("eth-price")
-var ethPrice = ethElement.textContent + " stock"
+var ethPrice = ethElement.textContent //+ " stock"
 
 const xrpElement = document.getElementById("xrp-price")
-var xrpPrice = xrpElement.textContent + " stock"
+var xrpPrice = xrpElement.textContent //+ " stock"
 
 const usdcElement = document.getElementById("usdc-price")
-var usdcPrice = usdcElement.textContent + " stock"
+var usdcPrice = usdcElement.textContent //+ " stock"
 
 const bnbElement = document.getElementById("bnb-price")
-var bnbPrice = bnbElement.textContent + " stock"
+var bnbPrice = bnbElement.textContent //+ " stock"
 
 const usdtElement = document.getElementById("usdt-price")
-var usdtPrice = usdtElement.textContent + " stock"
+var usdtPrice = usdtElement.textContent //+ " stock"
 
 
 
@@ -58,6 +59,14 @@ function getBtcValue() {
         let btcStockObject = JSON.parse(event.data)
         btcPrice = "$" + parseFloat(btcStockObject.p).toFixed(2)
         btcElement.innerText = btcPrice
+
+        // getting fluctuations
+        
+        // btcPrices.shift()
+        // btcPrices.push(btcPrice)
+        // console.log(btcPrices)
+        // let fluctuation = 1 - parseInt(btcPrices[0].slice(1,btcPrices.length)) / parseInt(btcPrices[1].slice(1,btcPrices.length))
+        // console.log(fluctuation)
     }
 }
 

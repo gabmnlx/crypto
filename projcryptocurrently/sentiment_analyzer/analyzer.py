@@ -1,9 +1,9 @@
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 import pandas as pd
 
-analyzer = SentimentIntensityAnalyzer()
 
 def analyze(inputfile):
+    analyzer = SentimentIntensityAnalyzer()
     analyze_results= []
     
     positive = 0
@@ -42,16 +42,42 @@ def analyze(inputfile):
     ave_neutral = neutral/neu_count
     
 
-    print("Positive: {}, Count: {}".format(ave_positive*100, pos_count))
-    print("Negative: {}, Count: {}".format(ave_negative*100, neg_count))
-    print("Compound Score: {}, Total Tweets: {}".format(compound/count*100,count))
+    # print("Positive: {}, Count: {}".format(ave_positive*100, pos_count))
+    # print("Negative: {}, Count: {}".format(ave_negative*100, neg_count))
+    # print("Compound Score: {}, Total Tweets: {}".format(compound/count*100,count))
     
     return [ave_positive*100,ave_negative*100,compound/count*100]
 
-coins = ["cleaned_Bitcoin.csv","cleaned_BNB.csv","cleaned_Ethereum.csv","cleaned_Tether.csv","cleaned_USD Coin.csv", "cleaned_XRP.csv"]
-for x in coins:
-    print(x.split('_')[1])
-    y = pd.read_csv("out/" +x)
-    analyze(y["cleaned_text"])
-    print('\n')
+def analyzerOutput(coin_name):
+    coins = ["cleaned_Bitcoin.csv","cleaned_BNB.csv","cleaned_Ethereum.csv","cleaned_Tether.csv","cleaned_USD Coin.csv", "cleaned_XRP.csv"]
+    
+    if coin_name == "bitcoin":
+        y = pd.read_csv("sentiment_analyzer/out/" + coins[0])
+
+    elif coin_name == "ethereum":
+        y = pd.read_csv("sentiment_analyzer/out/" + coins[2])
+    
+    elif coin_name == "tether":
+        y = pd.read_csv("sentiment_analyzer/out/" + coins[3])
+
+    elif coin_name == "usdcoin":
+        y = pd.read_csv("sentiment_analyzer/out/" + coins[4])
+
+    elif coin_name == "xrp":
+        y = pd.read_csv("sentiment_analyzer/out/" + coins[5])
+
+    elif coin_name == "binance":
+        y = pd.read_csv("sentiment_analyzer/out/" + coins[1])
+
+    
+    out = analyze(y["cleaned_text"])
+    print(out)
+    return out
+
+
+    # for x in coins:
+    #     print(x.split('_')[1])
+    #     y = pd.read_csv("out/" +x)
+    #     analyze(y["cleaned_text"])
+    #     print('\n')
 

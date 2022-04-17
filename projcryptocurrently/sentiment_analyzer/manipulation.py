@@ -12,14 +12,6 @@ import matplotlib.pyplot as plt
 nltk.download('stopwords')
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 
-
-bitcoin = pd.read_csv('out/cleaned_Bitcoin.csv')
-ethereum = pd.read_csv('out/cleaned_Ethereum.csv')
-tether = pd.read_csv('out/cleaned_Tether.csv')
-bnb = pd.read_csv('out/cleaned_BNB.csv')
-usdc = pd.read_csv('out/cleaned_USD Coin.csv')
-xrp = pd.read_csv('out/cleaned_XRP.csv')
-
 def tweets_to_dtm(tweets,coin):
     vectorizer = CountVectorizer(max_features=2000)
     dtm = vectorizer.fit_transform(tweets)
@@ -41,6 +33,13 @@ def tweets_to_tfidf(tweets,coin):
     tfidf = vectorizer.fit_transform(tweets)
     pickle.dump(vectorizer, open('out/' + coin + '_tfidf.pk', 'wb'))
     return tfidf, vectorizer
+
+bitcoin = pd.read_csv('out/cleaned_Bitcoin.csv')
+ethereum = pd.read_csv('out/cleaned_Ethereum.csv')
+tether = pd.read_csv('out/cleaned_Tether.csv')
+bnb = pd.read_csv('out/cleaned_BNB.csv')
+usdc = pd.read_csv('out/cleaned_USD Coin.csv')
+xrp = pd.read_csv('out/cleaned_XRP.csv')
 
 coins = [bitcoin,ethereum,tether,bnb,usdc,xrp]
 coin_names = ["bitcoin","ethereum","tether","bnb","usdc","xrp"]

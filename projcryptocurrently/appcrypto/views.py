@@ -4,6 +4,13 @@ from django.http import HttpResponse
 from django.views import View
 from coin_details import getCoinDesc, curValue, shortName, getFluctuation
 
+from sentiment_analyzer.extraction import extract
+from sentiment_analyzer.cleaner import clean
+from sentiment_analyzer.analyzer import analyzerOutput
+from sentiment_analyzer.extraction import extract
+from sentiment_analyzer.extraction import extract
+
+
 from datetime import datetime, date
 import calendar
 
@@ -42,7 +49,11 @@ def homepageview(request):
     return render(request, 'index.html', context)
 
 def coinview(request, coin_name):
+    output = analyzerOutput(coin_name)
     context = {}
+    context['positive'] = round(output[0], 2)
+    context['negative'] = round(output[1], 2)
+    context['compound_score'] = round(output[2], 2)
     context['coin_name'] = coin_name.capitalize()
     context['coin_description'] = getCoinDesc(coin_name)
     context['value'] = curValue(coin_name)

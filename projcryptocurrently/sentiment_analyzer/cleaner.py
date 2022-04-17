@@ -1,5 +1,5 @@
 import nltk
-nltk.download('stopwords')
+# nltk.download('stopwords')
 from turtle import clear
 from nltk.corpus import stopwords
 import numpy as np
@@ -17,10 +17,11 @@ def clean_tweets(tweets):
     
     return tweets
 
-coin = ["Bitcoin","BNB","Ethereum","Tether","USD Coin","XRP"]
-for x in range(0,len(coin)):
-    tw = pd.read_csv("out/" + coin[x] + ".csv", index_col=None, header=0)
-    cleaned = clean_tweets(tw)
-    print("Cleaning " + coin[x] + " tweets")
-    cleaned.to_csv("out/" + "cleaned_" + coin[x] + ".csv", index=False)
+def clean():
+    coin = ["Bitcoin","BNB","Ethereum","Tether","USD Coin","XRP"]
+    for x in range(0,len(coin)):
+        tw = pd.read_csv("out/" + coin[x] + ".csv", index_col=None, header=0)
+        cleaned = clean_tweets(tw)
+        print("Cleaning " + coin[x] + " tweets")
+        cleaned.to_csv("out/" + "cleaned_" + coin[x] + ".csv", index=False)
 
