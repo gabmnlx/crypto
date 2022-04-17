@@ -1,3 +1,5 @@
+import nltk
+nltk.download('stopwords')
 from turtle import clear
 from nltk.corpus import stopwords
 import numpy as np
