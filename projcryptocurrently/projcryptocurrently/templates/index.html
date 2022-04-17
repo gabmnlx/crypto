@@ -20,7 +20,7 @@
             <div id="datetime">
                 <div class="date" id="date" onload="showTime()"></div>
                 <div class="time" id="time" onload="showTime()"> PHT</div>
-                <script src="{% static "js/app.js" %}" type="text/javascript"></script>
+                <script src="{% static "js/app.js" %}" type="text/javascript" defer></script>
             </div>
     
             <div class="first-col">
@@ -64,7 +64,7 @@
         <div id="coins">
             <a href="/coin/bitcoin" class="btn" id="bitcoin">
                 <div class="top-text">
-                    <h4 class="price"> {{ bitcoin_value }} </h4>
+                    <h4 id="btc-price" class="price"> {{ bitcoin_value }} </h4>
     
                     <div class="fluctuation">
                         {% if bitcoin_fluc_sign %}
@@ -87,7 +87,7 @@
 
             <a href="/coin/ethereum" class="btn" id="ethereum">
                 <div class="top-text">
-                    <h4 class="price"> {{ ethereum_value }} </h4>
+                    <h4 id="eth-price" class="price"> {{ ethereum_value }} </h4>
     
                     <div class="fluctuation">
                         {% if ethereum_fluc_sign %}
@@ -109,7 +109,7 @@
 
             <a href="/coin/xrp" class="btn" id="xrp">
                 <div class="top-text">
-                    <h4 class="price"> {{ xrp_value }} </h4>
+                    <h4 id="xrp-price" class="price"> {{ xrp_value }} </h4>
     
                     <div class="fluctuation">
                         {% if xrp_fluc_sign %}
@@ -131,7 +131,7 @@
 
             <a href="/coin/usdcoin" class="btn" id="usd">
                 <div class="top-text">
-                    <h4 class="price"> {{ usd_value }} </h4>
+                    <h4 id="usdc-price" class="price"> {{ usd_value }} </h4>
     
                     <div class="fluctuation">
                         {% if usd_fluc_sign %}
@@ -153,7 +153,7 @@
 
             <a href="/coin/binance" class="btn" id="bnb">
                 <div class="top-text">
-                    <h4 class="price"> {{ bnb_value }} </h4>
+                    <h4 id="bnb-price" class="price"> {{ bnb_value }} </h4>
     
                     <div class="fluctuation">
                         {% if bnb_fluc_sign %}
@@ -174,7 +174,7 @@
 
             <a href="/coin/tether" class="btn" id="tether">
                 <div class="top-text">
-                    <h4 class="price"> {{ tether_value }} </h4>
+                    <h4 id="usdt-price" class="price"> {{ tether_value }} </h4>
     
                     <div class="fluctuation">
                         {% if tether_fluc_sign %}

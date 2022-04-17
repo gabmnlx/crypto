@@ -1,3 +1,6 @@
+from bs4 import BeautifulSoup
+import requests
+
 def getCoinDesc(coin_name):
     if coin_name == "bitcoin":
         return """Bitcoin (₿) is a decentralized digital currency, without a \n
@@ -31,24 +34,47 @@ def getCoinDesc(coin_name):
         cryptocurrencies.[2] It was founded in 2017 and is registered in the 
         Cayman Islands."""
 
+
+
 def curValue(coin_name):
-    if coin_name == "bitcoin":
-        return "47,881.00"
+    url = "https://coinmarketcap.com/currencies/"
 
-    elif coin_name == "ethereum":
-        return "3,470.44"
-    
-    elif coin_name == "tether":
-        return "0.999"
-
-    elif coin_name == "usdcoin":
-        return "1.001"
-
-    elif coin_name == "xrp":
-        return "0.879"
-
+    # because of how coinmarketcap's links are formatted:
+    if coin_name == "usdcoin":
+        url += "usd-coin"
     elif coin_name == "binance":
-        return "439.51"
+        url += "bnb"
+    else:
+        url += coin_name
+
+    result = requests.get(url)
+    doc = BeautifulSoup(result.text, "html.parser") 
+
+    priceClass = doc.find("div", class_="priceValue")
+    return priceClass.find("span").text 
+
+# def curValueToFile():
+#     values = []
+#     strings = ["bitcoin", "ethereum", "tether", "usd-coin", "xrp", "bnb"]
+#     url = "https://coinmarketcap.com/currencies/"
+
+#     for string in strings:
+#         url = "https://coinmarketcap.com/currencies/" + string
+
+#         result = requests.get(url)
+#         doc = BeautifulSoup(result.text, "html.parser") 
+
+#         priceClass = doc.find("div", class_="priceValue")
+#         values.append(priceClass.find("span").text) 
+
+#     values_file = open("coin_values.txt", "w")
+#     for value in values:
+#         values_file.write(value + "\n")
+#     values_file.close()
+#     print(values)
+#     time.sleep(10)
+
+#     curValueToFile()
 
 def shortName(coin_name):
     if coin_name == "bitcoin":
@@ -68,7 +94,9 @@ def shortName(coin_name):
 
     elif coin_name == "binance":
         return "BNB"
-        
+
+
+# update this
 def getFluctuation(coin_name):
     if coin_name == "bitcoin":
         return -0.81
