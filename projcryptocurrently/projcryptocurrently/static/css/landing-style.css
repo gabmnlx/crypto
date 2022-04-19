@@ -31,7 +31,7 @@
     padding: 72px;
     background: url(../css/images/crypto-bg.png) no-repeat;
     background-repeat: no-repeat;
-    background-size: 1920px 100vh;
+    background-size: auto 100vh;
     background-position: top right 20%;
 }
 
@@ -54,7 +54,7 @@
 
 #main-text {
     position: relative;
-    top: 30%;
+    margin-top: 108px;
     display: flex;
     flex-direction: column;
     justify-content: end;
@@ -65,7 +65,7 @@
 }
 
 .subtext {
-    width: 50%;
+    width: 80%;
     text-align: right;
     justify-content: flex-end;
     margin-left: auto;
@@ -145,8 +145,7 @@
 
 #coins {
     display: flex;
-    flex-flow: wrap;
-
+    flex-flow: row wrap;
     justify-content: center;
     align-items: center;
 }
@@ -208,7 +207,7 @@
 #coins .btn .bottom-text .coin-name {
     font-family: "Magazine Grotesk", sans-serif;
     font-weight: 700;
-    font-size: 52px;
+    font-size: 2.5em;
 }
 
 #coins .btn .bottom-text .short-name {
@@ -268,4 +267,92 @@
     font-family: "Blatant", sans-serif;
     font-weight: 400;
     font-size: 1.2em;
+}
+
+@media screen and (max-width: 1200px) {
+    .coin-name {
+        font-size: 2em!important;
+    }
+}
+
+@media screen and (max-width: 900px){
+    .container {
+        padding: 32px;
+        background-size: auto 100vh;
+    }
+
+    #landing {
+        height: calc(100vh - 32px);
+    }
+
+    #nav {
+        flex-direction: column;
+    }
+
+    #nav > * {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    #coin-text {
+        padding: 0;
+        margin: 32px 0;
+        font-size: 2em;
+    }
+
+    #coins {
+        justify-content: space-between;
+    }
+
+    #coins .btn {
+        width: 46%;
+        height: calc(.46 * calc(100vw - 64px));
+        margin: 0 0 32px 0;
+    }
+
+    .coin-name {
+        font-size: 2.5em!important;
+    }
+
+    #main-text {
+        margin-top: 40px;
+    }
+
+    #crypto {
+        width: auto;
+        font-size: 3em;
+    }
+
+    #crypto-desc {
+        width: 70%;
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #coins .btn {
+        width: 100%;
+        height: calc(100vw - 64px);
+        margin: 0 0 32px 0;
+    }
+
+    .first-col {
+        display: none;
+    }
+
+    .second-col span {
+        font-size: .8em;
+    }
+
+    #main-text {
+        margin-top: 56px;
+    }
+
+    #crypto {
+        font-size: 10vw;
+    }
+
+    #crypto-desc {
+        width: auto;
+    }
 }
