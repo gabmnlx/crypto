@@ -33,6 +33,16 @@ body {
     overflow-x: hidden;
 }
 
+button {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
 body[coin-name="Bitcoin"] { background-color: #FFEFDD; }
 body[coin-name="Ethereum"] { background-color: #DDF1FF; }
 body[coin-name="Xrp"] { background-color: #FFDDDD; }
@@ -87,12 +97,16 @@ body[coin-name="Binance"] { background-color: #FFFCDD; }
 }
 
 #name {
-    margin-right: 40px;
     font-size: 68px;
     font-family: 'Blatant', sans-serif;
     font-weight: 400;
     text-transform: uppercase;
     color: #242424;
+}
+
+.name-desc img {
+    margin: 0 40px;
+    display: inline;
 }
 
 .coin-info {
@@ -160,7 +174,7 @@ body[coin-name="Binance"] { background-color: #FFFCDD; }
 }
 
 .sentiment-container > * h2 {
-    font-size: 60px;
+    font-size: clamp(24px, 4.5vw, 60px);
     margin: 24px 24px 0 24px;
     font-weight: 700;
     font-family: 'Blatant', sans-serif;
@@ -228,13 +242,20 @@ body[coin-name="Binance"] { background-color: #FFFCDD; }
     }
 
     .sentiment-container > * h2 {
-        font-size: 52px;
         margin: 16px 16px 0 16px;
     }
 
     .sentiment-container > * p {
         font-size: 12px;
         margin: 0 16px;
+    }
+
+    #name {
+        margin-bottom: 20px;
+    }
+
+    .name-desc img {
+        display: none;
     }
 }
 
@@ -271,7 +292,7 @@ body[coin-name="Binance"] { background-color: #FFFCDD; }
     }
 
     #exchange-rate {
-        font-size: 40px;
+        font-size: 32px;
     }
 
     #exchange-currency {
@@ -279,7 +300,7 @@ body[coin-name="Binance"] { background-color: #FFFCDD; }
     }
 
     #exchange-container h3, .percent{
-        font-size: 24px;
+        font-size: 20px;
     }
 
     
@@ -302,6 +323,7 @@ body[coin-name="Binance"] { background-color: #FFFCDD; }
     }
 
     .sentiment-container > * h2 {
+        font-size: 48px;
         margin: 16px 24px 0 24px;
     }
 
