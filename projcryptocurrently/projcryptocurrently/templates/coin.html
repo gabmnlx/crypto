@@ -1,63 +1,57 @@
+{% extends 'base.html' %}
 {% load static %}
 
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>CryptoCurrently | {{ coin_name }}</title>
-        <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
-        <style>
+{% block title %}CryptoCurrently | {{ coin_name }}{% endblock %}
 
-        </style>
-    </head>
-    <body coin-name="{{ coin_name }}">
-        <div class="main">
-            <p id="back-text" coin-name="{{ coin_name }}">{{ short }}</p>
-            <button onclick="history.back()"><img id="back-button" src="{% static 'css/images/left-50.png' %}" alt="Back Button"></button>
-            <section class="coin-info">
-                <div class="name-desc">
-                    <h1 id="name">
-                        {{ coin_name }}
-                    </h1>
-                    <img src="{% static 'css/images/vertical-line-50.png' %}" alt="">
-                    <h4 id="desc">{{ coin_description }}</h4>
-                </div>
-                <div id="exchange-container">
-                    <div>
-                        <h2 id="exchange-rate">{{ value }}</h2>
-                        <p id="exchange-currency">{{ short }} / USD</p>
-                    </div>
-                    <h3>{{ rate_change }}12.67<span class="percent">%</span></h3>
-                </div>
-            </section>
-            <section class="sentiment-result">
-                <h3 id="sentiment-label">Sentiment Analysis Results</h3>
-                <div class="sentiment-container">
-                    <div>
-                        <h2>{{ positive }}%</h2>
-                        <p>Positive Sentiments</p>
-                    </div>
-                    <div>
-                        <h2>{{ negative }}%</h2>
-                        <p>Negative Sentiments</p>
-                    </div>
-                    <div>
-                        <h2>{{ compound_score }}%</h2>
-                        <p>Compound Score </p>
-                    </div>
-                </div>
-                <hr class="divider">
-            </section>
-            <section class="sentiment-graphs">
-                <div id="ngram">
-                    
-                </div>
-            </section>
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+{% endblock %}
+
+{% block header %} {% endblock %}
+
+{% block content %}
+<div class="main">
+    <p id="back-text" coin-name="{{ coin_name }}">{{ short }}</p>
+    <button onclick="history.back()"><img id="back-button" src="{% static 'css/images/left-50.png' %}" alt="Back Button"></button>
+    <section class="coin-info">
+        <div class="name-desc">
+            <h1 id="name">
+                {{ coin_name }}
+            </h1>
+            <img src="{% static 'css/images/vertical-line-50.png' %}" alt="">
+            <h4 id="desc">{{ coin_description }}</h4>
         </div>
-    </body>
-    <footer>
-        
-    </footer>
-</html>
+        <div id="exchange-container">
+            <div>
+                <h2 id="exchange-rate">{{ value }}</h2>
+                <p id="exchange-currency">{{ short }} / USD</p>
+            </div>
+            <h3>{{ rate_change }}12.67<span class="percent">%</span></h3>
+        </div>
+    </section>
+    <section class="sentiment-result">
+        <h3 id="sentiment-label">Sentiment Analysis Results</h3>
+        <div class="sentiment-container">
+            <div>
+                <h2>{{ positive }}%</h2>
+                <p>Positive Sentiments</p>
+            </div>
+            <div>
+                <h2>{{ negative }}%</h2>
+                <p>Negative Sentiments</p>
+            </div>
+            <div>
+                <h2>{{ compound_score }}%</h2>
+                <p>Compound Score </p>
+            </div>
+        </div>
+        <hr class="divider">
+    </section>
+    <section class="sentiment-graphs">
+        <div id="ngram">
+            
+        </div>
+    </section>
+</div>
 
+{% endblock %}
