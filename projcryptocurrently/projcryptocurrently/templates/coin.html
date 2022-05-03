@@ -16,12 +16,13 @@
         <div id="conversionRate">{{ conversionRate }}<!-- will be invisible --></div>
         <div class="main">
             <p id="back-text" coin-name="{{ coin_name }}">{{ short }}</p>
-            <a href="/"><img id="back-button" src="{% static 'css/images/left-arrow.png' %}" alt="Back Button"></a>
+            <button onclick="history.back()"><img id="back-button" src="{% static 'css/images/left-50.png' %}" alt="Back Button"></button>
             <section class="coin-info">
                 <div class="name-desc">
                     <h1 id="name">
                         {{ coin_name }}
                     </h1>
+                    <img src="{% static 'css/images/vertical-line-50.png' %}" alt="">
                     <h4 id="desc">{{ coin_description }}</h4>
                 </div>
                 <div id="exchange-container">
