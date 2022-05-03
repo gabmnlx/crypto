@@ -1,4 +1,4 @@
-function myrefresh() {
+function refresh() {
     window.location.reload();
 }
-setInterval('myrefresh()', 3600000);
+setInterval('refresh()', 3600000);

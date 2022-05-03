@@ -4,15 +4,33 @@ from django.http import HttpResponse
 from django.views import View
 from coin_details import getCoinDesc, curValue, shortName, getFluctuation, eurToUsdConvert, coin_dtm, coin_ngram,coin_tfidf,coin_wordcloud
 
-from sentiment_analyzer.extraction import extract
+from sentiment_analyzer.extraction import create_var, create_api, search_to_df, search_tweets
 from sentiment_analyzer.cleaner import clean
 from sentiment_analyzer.analyzer import analyzerOutput
-from sentiment_analyzer.extraction import extract
-from sentiment_analyzer.extraction import extract
 
 
 from datetime import datetime, date
 import calendar
+
+# Extraction
+import tweepy
+import pandas as pd
+consumer_key, consumer_key_secret, access_token, access_token_secret = create_var()
+def extract(consumer_key, consumer_key_secret, access_token, access_token_secret):
+    coin = ["Bitcoin","BNB","Ethereum","Tether","USD Coin","XRP"]
+    for x in range(0,len(coin)):
+        api = create_api(consumer_key, consumer_key_secret, access_token, access_token_secret)
+        search_results = search_tweets(api,coin[x], ignore_rt=True, max_tweets=400)
+        tweets = search_to_df(search_results)
+        tweets.to_csv("../sentiment_analyzer/out/" + coin[x] + ".csv", index=False)
+        # print("Extracting " + coin[x] + " tweets")
+
+t=datetime.now()
+if t.minute==46:
+    consumer_key, consumer_key_secret, access_token, access_token_secret = create_var()
+    print("yo")
+    extract(consumer_key, consumer_key_secret, access_token, access_token_secret)
+
 
 # Create your views here.
 

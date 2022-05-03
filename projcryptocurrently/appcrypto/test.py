@@ -1,12 +1,6 @@
 import tweepy
 import pandas as pd
-# import warnings
-
-# Suppress all warnings
-# warnings.filterwarnings("ignore")
-# pd.options.mode.chained_assignment = None
-
-# Application keys
+from datetime import datetime
 def create_var():
     consumer_key = 'FvUZZRtXBHbuRFSfbrIxbVC2R'
     consumer_key_secret = 'QoNA68J1Ds9Jn3qYEmAAW3267suZ0Nq39JNe7dYzdUCaRwybfH'
@@ -34,13 +28,17 @@ def search_to_df(search_results):
     tweets_df = pd.DataFrame(tweets, columns=['id', 'handle', 'created_at', 'text'])
     return tweets_df
 
-# Extract tweets
-# def extract(consumer_key, consumer_key_secret):
-#     coin = ["Bitcoin","BNB","Ethereum","Tether","USD Coin","XRP"]
-#     for x in range(0,len(coin)):
-#         api = create_api(consumer_key, consumer_key_secret)
-#         search_results = search_tweets(api,coin[x], ignore_rt=True, max_tweets=400)
-#         tweets = search_to_df(search_results)
-#         tweets.to_csv("out/" + coin[x] + ".csv", index=False)
-#         print("Extracting " + coin[x] + " tweets")
-    
+def extract(consumer_key, consumer_key_secret, access_token, access_token_secret):
+    coin = ["Bitcoin","BNB","Ethereum","Tether","USD Coin","XRP"]
+    for x in range(0,len(coin)):
+        api = create_api(consumer_key, consumer_key_secret, access_token, access_token_secret)
+        search_results = search_tweets(api,coin[x], ignore_rt=True, max_tweets=400)
+        tweets = search_to_df(search_results)
+        tweets.to_csv("../sentiment_analyzer/out/" + coin[x] + ".csv", index=False)
+        # print("Extracting " + coin[x] + " tweets")
+
+t=datetime.now()
+if t.minute==39:
+    consumer_key, consumer_key_secret, access_token, access_token_secret = create_var()
+    print("yo")
+    extract(consumer_key, consumer_key_secret, access_token, access_token_secret)
