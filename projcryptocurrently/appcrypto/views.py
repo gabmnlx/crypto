@@ -2,7 +2,8 @@ from http.client import HTTPResponse
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
-from coin_details import getCoinDesc, curValue, shortName, getFluctuation, eurToUsdConvert, coin_dtm, coin_ngram,coin_tfidf,coin_wordcloud
+from coin_details import getCoinDesc, curValue, shortName, eurToUsdConvert, coin_dtm, coin_ngram,coin_tfidf,coin_wordcloud,getCompScoreFluctuation
+from coin_details import filterCoins
 
 from sentiment_analyzer.extraction import create_var, create_api, search_to_df, search_tweets
 from sentiment_analyzer.cleaner import clean
@@ -32,7 +33,25 @@ if t.minute==46:
     extract(consumer_key, consumer_key_secret, access_token, access_token_secret)
 
 
-# Create your views here.
+
+# 2 most recent values for each coin:
+btcPrevVal = 21.5
+ethPrevVal = 21.5
+xrpPrevVal = 21.5
+usdcPrevVal = 21.5
+bnbPrevVal = 21.5
+usdtPrevVal = 21.5
+
+btcTwoVals = [btcPrevVal, round(analyzerOutput("bitcoin")[2], 2)]
+ethTwoVals = [ethPrevVal, round(analyzerOutput("ethereum")[2], 2)]
+xrpTwoVals = [xrpPrevVal, round(analyzerOutput("xrp")[2], 2)]
+usdcTwoVals = [usdcPrevVal, round(analyzerOutput("usdcoin")[2], 2)]
+bnbTwoVals = [bnbPrevVal, round(analyzerOutput("binance")[2], 2)]
+usdtTwoVals = [usdtPrevVal, round(analyzerOutput("tether")[2], 2)]
+
+coinsWithPositiveFlucs = []
+
+
 
 def homepageview(request):
     context = {}
@@ -51,19 +70,42 @@ def homepageview(request):
     context['bnb_value'] = curValue("binance")
     context['tether_value'] = curValue("tether")
 
-    context['bitcoin_fluc'] = abs(getFluctuation("bitcoin"))
-    context['ethereum_fluc'] = abs(getFluctuation("ethereum"))
-    context['xrp_fluc'] = abs(getFluctuation("xrp"))
-    context['usd_fluc'] = abs(getFluctuation("usdcoin"))
-    context['bnb_fluc'] = abs(getFluctuation("binance"))
-    context['tether_fluc'] = abs(getFluctuation("tether"))
+    context['bitcoin_comp_score'] = btcTwoVals[1]
+    context['ethereum_comp_score'] = ethTwoVals[1]
+    context['xrp_comp_score'] = xrpTwoVals[1]
+    context['usd_comp_score'] = usdcTwoVals[1]
+    context['bnb_comp_score'] = bnbTwoVals[1]
+    context['tether_comp_score'] = usdtTwoVals[1]
 
-    context['bitcoin_fluc_sign'] = getFluctuation("bitcoin") >= 0
-    context['ethereum_fluc_sign'] = getFluctuation("ethereum") >= 0
-    context['xrp_fluc_sign'] = getFluctuation("xrp") >= 0
-    context['usd_fluc_sign'] = getFluctuation("usdcoin") >= 0
-    context['bnb_fluc_sign'] = getFluctuation("binance") >= 0
-    context['tether_fluc_sign'] = getFluctuation("tether") >= 0
+    context['bitcoin_comp_score_fluc'] = getCompScoreFluctuation(btcTwoVals)
+    context['ethereum_comp_score_fluc'] = getCompScoreFluctuation(ethTwoVals)
+    context['xrp_comp_score_fluc'] = getCompScoreFluctuation(xrpTwoVals)
+    context['usd_comp_score_fluc'] = getCompScoreFluctuation(usdcTwoVals)
+    context['bnb_comp_score_fluc'] = getCompScoreFluctuation(bnbTwoVals)
+    context['tether_comp_score_fluc'] = getCompScoreFluctuation(usdtTwoVals)
+
+    context['bitcoin_comp_score_fluc_arrow'] = getCompScoreFluctuation(btcTwoVals) >= 0
+    context['ethereum_comp_score_fluc_arrow'] = getCompScoreFluctuation(ethTwoVals) >= 0
+    context['xrp_comp_score_fluc_arrow'] = getCompScoreFluctuation(xrpTwoVals) >= 0
+    context['usd_comp_score_fluc_arrow'] = getCompScoreFluctuation(usdcTwoVals) >= 0
+    context['bnb_comp_score_fluc_arrow'] = getCompScoreFluctuation(bnbTwoVals) >= 0
+    context['tether_comp_score_fluc_arrow'] = getCompScoreFluctuation(usdtTwoVals) >= 0
+
+    if filterCoins(btcTwoVals):
+        coinsWithPositiveFlucs.append("btc")
+    if filterCoins(ethTwoVals):
+        coinsWithPositiveFlucs.append("eth")
+    if filterCoins(xrpTwoVals):
+        coinsWithPositiveFlucs.append("xrp")
+    if filterCoins(usdcTwoVals):
+        coinsWithPositiveFlucs.append("usdc")
+    if filterCoins(bnbTwoVals):
+        coinsWithPositiveFlucs.append("bnb")
+    if filterCoins(usdtTwoVals):
+        coinsWithPositiveFlucs.append("usdt")
+
+    context['positive_flucs'] = coinsWithPositiveFlucs
+
     
     return render(request, 'index.html', context)
 

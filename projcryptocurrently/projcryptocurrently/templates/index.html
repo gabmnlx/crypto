@@ -73,12 +73,12 @@
                     <h4 id="btc-price" class="price"> {{ bitcoin_value }} </h4>
     
                     <div class="fluctuation">
-                        {% if bitcoin_fluc_sign %}
+                        {% if bitcoin_comp_score_fluc_arrow %}
                         <img class="fluctuation-arrow" src="../static/css/images/up-arrow.png" alt="">
                         {% else %}
                         <img class="fluctuation-arrow" src="../static/css/images/down-arrow.png" alt="">
                         {% endif %}
-                        <h3 class="fluctuation-percent"> {{ bitcoin_fluc }}%</h3>
+                        <h3 class="fluctuation-percent"> {{ bitcoin_comp_score }}%</h3>
                     </div>
                 </div>
 
@@ -96,12 +96,12 @@
                     <h4 id="eth-price" class="price"> {{ ethereum_value }} </h4>
     
                     <div class="fluctuation">
-                        {% if ethereum_fluc_sign %}
+                        {% if ethereum_comp_score_fluc_arrow %}
                         <img class="fluctuation-arrow" src="../static/css/images/up-arrow.png" alt="">
                         {% else %}
                         <img class="fluctuation-arrow" src="../static/css/images/down-arrow.png" alt="">
                         {% endif %}
-                        <h3 class="fluctuation-percent"> {{ ethereum_fluc }}%</h3>
+                        <h3 class="fluctuation-percent"> {{ ethereum_comp_score }}%</h3>
                     </div>
                 </div>
 
@@ -118,12 +118,12 @@
                     <h4 id="xrp-price" class="price"> {{ xrp_value }} </h4>
     
                     <div class="fluctuation">
-                        {% if xrp_fluc_sign %}
+                        {% if xrp_comp_score_fluc_arrow %}
                         <img class="fluctuation-arrow" src="../static/css/images/up-arrow.png" alt="">
                         {% else %}
                         <img class="fluctuation-arrow" src="../static/css/images/down-arrow.png" alt="">
                         {% endif %}
-                        <h3 class="fluctuation-percent"> {{ xrp_fluc }}%</h3>
+                        <h3 class="fluctuation-percent"> {{ xrp_comp_score }}%</h3>
                     </div>
                 </div>
 
@@ -140,12 +140,12 @@
                     <h4 id="usdc-price" class="price"> {{ usd_value }} </h4>
     
                     <div class="fluctuation">
-                        {% if usd_fluc_sign %}
+                        {% if usd_comp_score_fluc_arrow %}
                         <img class="fluctuation-arrow" src="../static/css/images/up-arrow.png" alt="">
                         {% else %}
                         <img class="fluctuation-arrow" src="../static/css/images/down-arrow.png" alt="">
                         {% endif %}
-                        <h3 class="fluctuation-percent"> {{ usd_fluc }}%</h3>
+                        <h3 class="fluctuation-percent"> {{ usd_comp_score }}%</h3>
                     </div>
                 </div>
 
@@ -162,12 +162,12 @@
                     <h4 id="bnb-price" class="price"> {{ bnb_value }} </h4>
     
                     <div class="fluctuation">
-                        {% if bnb_fluc_sign %}
+                        {% if bnb_comp_score_fluc_arrow %}
                         <img class="fluctuation-arrow" src="../static/css/images/up-arrow.png" alt="">
                         {% else %}
                         <img class="fluctuation-arrow" src="../static/css/images/down-arrow.png" alt="">
                         {% endif %}
-                        <h3 class="fluctuation-percent"> {{ bnb_fluc }}%</h3>
+                        <h3 class="fluctuation-percent"> {{ bnb_comp_score }}%</h3>
                     </div>
                 </div>
 
@@ -183,12 +183,12 @@
                     <h4 id="usdt-price" class="price"> {{ tether_value }} </h4>
     
                     <div class="fluctuation">
-                        {% if tether_fluc_sign %}
+                        {% if tether_comp_score_fluc_arrow %}
                         <img class="fluctuation-arrow" src="../static/css/images/up-arrow.png" alt="">
                         {% else %}
                         <img class="fluctuation-arrow" src="../static/css/images/down-arrow.png" alt="">
                         {% endif %}
-                        <h3 class="fluctuation-percent"> {{ tether_fluc }}%</h3>
+                        <h3 class="fluctuation-percent"> {{ tether_comp_score }}%</h3>
                     </div>
                 </div>
 
@@ -199,6 +199,10 @@
 
                 <img class="logo" src="../static/css/images/tether-logo.webp" alt=""></a>
         </div>
+    </div>
+
+    <div class="testclass" style="height: 100vh; color: black; margin-top:30vh;">
+        <h1> {{ positive_flucs }}</h1>
     </div>
 
 </div>

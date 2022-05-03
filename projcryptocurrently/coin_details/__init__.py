@@ -54,7 +54,7 @@ def curValue(coin_name):
     if coin_name == "usdcoin":
         return priceClass.find("span").text + "00" # for consistency, cuz the scraped = 2 dec. places while stream = 4 dec. places
     return priceClass.find("span").text 
-    
+
 
 def eurToUsdConvert():
     url = "https://www.x-rates.com/calculator/?from=EUR&to=USD&amount=1"
@@ -111,24 +111,8 @@ def shortName(coin_name):
 
 
 # update this
-def getFluctuation(coin_name):
-    if coin_name == "bitcoin":
-        return -0.81
-
-    elif coin_name == "ethereum":
-        return -0.69
-    
-    elif coin_name == "tether":
-        return 4.2
-
-    elif coin_name == "usdcoin":
-        return -7.77
-
-    elif coin_name == "xrp":
-        return 1.23
-
-    elif coin_name == "binance":
-        return 99.99
+def getCompScoreFluctuation(arr):
+    return (arr[1]-arr[0])/arr[0]
 
 def coin_dtm(coin_name):
     if coin_name == "bitcoin":
@@ -206,3 +190,6 @@ def coin_wordcloud(coin_name):
     elif coin_name == "binance":
         return "bnb_wordcloud.svg"
 
+def filterCoins(arr):
+    # positive flucs
+    return getCompScoreFluctuation(arr) > 0
