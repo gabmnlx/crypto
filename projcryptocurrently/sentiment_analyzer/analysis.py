@@ -3,8 +3,8 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import matplotlib.style as style
 from wordcloud import WordCloud
-style.use('fivethirtyeight')
-sns.set(rc={'figure.figsize':(12,6)})
+# style.use('fivethirtyeight')
+# sns.set(rc={'figure.figsize':(12,6)})
 
 # Read cleaned tweets, term frequencies of DTM, ngram, and TFIDF
 freq_dtm_bitcoin = pd.read_csv('out/bitcoin_dtm.csv', index_col=None, header=0)
