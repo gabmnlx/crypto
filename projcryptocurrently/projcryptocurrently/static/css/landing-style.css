@@ -40,6 +40,10 @@ html {
     background-repeat: no-repeat;
     background-size: auto 100vh;
     background-position: top right 20%; */
+    background-image: url('https://cliply.co/wp-content/uploads/2019/12/371912980_3D_ATOM_400px.gif');
+    background-repeat: no-repeat;
+    background-size: 40%;
+    background-position: center 20vh;
 }
 
 #dayOfTheWeek {
@@ -138,7 +142,8 @@ html {
 }
 
 #down-link {
-    margin-top: 12vh;
+    /* margin-top: 12vh; */
+    margin-top: calc(100vh - 607px);
     align-self: center;
     justify-content: center;
     display: none;
@@ -224,14 +229,14 @@ html {
 }
 
 #coins .btn .top-text .fluctuation .fluctuation-arrow {
-    height: 2em;
+    height: 1.5em;
 }
 
 #coins .btn .top-text .fluctuation .fluctuation-percent {
     font-family: "Blatant", sans-serif;
     font-weight: 400;
 
-    font-size: 1.2em;
+    font-size: 1.5em;
 }
 
 #coins .btn .bottom-text .coin-name {
@@ -313,7 +318,8 @@ html {
 
 @media screen and (max-width: 900px){
     .container {
-        background-size: auto 100vh;
+        background-size: auto;
+        background-position: center calc(50vh - 200px);
     }
 
     #landing {
