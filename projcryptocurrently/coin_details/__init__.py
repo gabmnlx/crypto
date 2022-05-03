@@ -41,7 +41,7 @@ def curValue(coin_name):
 
     # because of how coinmarketcap's links are formatted:
     if coin_name == "usdcoin":
-        url += "usd-coin"
+        url += "usdc"
     elif coin_name == "binance":
         url += "bnb"
     else:
