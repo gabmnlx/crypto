@@ -51,6 +51,7 @@ var bnbPrice = bnbElement.textContent //+ " stock"
 const usdtElement = document.getElementById("usdt-price")
 var usdtPrice = usdtElement.textContent //+ " stock"
 
+const conversionRate = parseFloat(document.getElementById("conversionRate").textContent)
 
 
 function getBtcValue() {
@@ -106,9 +107,20 @@ function getBnbValue() {
     }
 }
 
+function getUsdtValue() {
+    var usdtWs = new WebSocket('wss://stream.binance.com:9443/ws/eurusdt@trade')
+    usdtWs.onmessage = (event) => {
+        let tstockObject = JSON.parse(event.data)
+        usdtPrice = "$" + parseFloat(tstockObject.p/conversionRate).toFixed(4)
+        usdtElement.innerText = usdtPrice
+    }
+}
+
 showTime();
 getBtcValue()
 getEthValue()
 getXrpValue()
 getUsdcValue()
 getBnbValue()
+getUsdtValue()
+// getSlpValue()

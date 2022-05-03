@@ -40,6 +40,13 @@ body[coin-name="Usdcoin"] { background-color: #DDE7FF; }
 body[coin-name="Tether"] { background-color: #DDFFF5; }
 body[coin-name="Binance"] { background-color: #FFFCDD; }
 
+#conversionRate {
+    color:red;
+    position: absolute;
+    opacity: 0;
+    z-index: 100;
+}
+
 .container {
     min-height: 100vh;
     display: flex;

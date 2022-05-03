@@ -7,11 +7,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>CryptoCurrently | {{ coin_name }}</title>
         <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+        <script src="{% static "js/coin-app.js" %}" type="text/javascript" defer></script>
         <style>
 
         </style>
     </head>
     <body coin-name="{{ coin_name }}">
+        <div id="conversionRate">{{ conversionRate }}<!-- will be invisible --></div>
         <div class="main">
             <p id="back-text" coin-name="{{ coin_name }}">{{ short }}</p>
             <a href="/"><img id="back-button" src="{% static 'css/images/left-arrow.png' %}" alt="Back Button"></a>
@@ -24,7 +26,7 @@
                 </div>
                 <div id="exchange-container">
                     <div>
-                        <h2 id="exchange-rate">{{ value }}</h2>
+                        <h2 id="exchange-rate"> {{ value }}</h2>
                         <p id="exchange-currency">{{ short }} / USD</p>
                     </div>
                     <h3>{{ rate_change }}12.67<span class="percent">%</span></h3>

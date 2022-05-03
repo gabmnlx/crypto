@@ -35,10 +35,11 @@
     background-position: top right 20%;
 }
 
-#dayOfTheWeek {
+#dayOfTheWeek, #conversionRate {
     color:red;
     position: absolute;
     opacity: 0;
+    z-index: 100;
 }
 
 #landing {
