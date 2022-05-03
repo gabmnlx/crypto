@@ -2,7 +2,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 import matplotlib.style as style
-# from wordcloud import WordCloud
+from wordcloud import WordCloud
 style.use('fivethirtyeight')
 sns.set(rc={'figure.figsize':(12,6)})
 
@@ -49,6 +49,7 @@ def create_wordcloud(tweets,coin, max_words=500):
     plt.title('Twitter Generated Cloud', size=30)
     plt.axis("off")
     plt.savefig("graphs/" + coin +"_wordcloud.svg")
+    plt.savefig("../projcryptocurrently/static/graphs/" + coin +"_wordcloud.svg")
 
 
 #bitcoin
@@ -56,21 +57,24 @@ sns.barplot(data=freq_dtm_bitcoin.head(10), x='term',
             y='frequency').set_title('Frequent terms in DTM')
 plt.tight_layout()
 plt.savefig("graphs/bitcoin_dtm.svg")
+plt.savefig("../projcryptocurrently/static/graphs/bitcoin_dtm.svg") #for loading the image in the coin details kasi nag-eerror pag kinkukha sa sentiment_analyzer
 
 # Visualize frequencies
 sns.barplot(data=freq_ngram_bitcoin.head(10), x='term',
             y='frequency').set_title('Frequent terms in Ngram')
 plt.tight_layout()
 plt.savefig("graphs/bitcoin_ngram.svg")
+plt.savefig("../projcryptocurrently/static/graphs/bitcoin_ngram.svg")
 
 # Visualize frequencies
 sns.barplot(data=freq_tfidf_bitcoin.head(10), x='term',
             y='frequency').set_title('Frequent terms in TFIDF')
 plt.tight_layout()
 plt.savefig("graphs/bitcoin_tfidf.svg")
+plt.savefig("../projcryptocurrently/static/graphs/bitcoin_tfidf.svg")
 
 bitcoin_cleaned = pd.read_csv('out/cleaned_Bitcoin.csv')
-# create_wordcloud(bitcoin_cleaned,"bitcoin")
+create_wordcloud(bitcoin_cleaned,"bitcoin")
 
 
 #ethereum
@@ -78,88 +82,103 @@ sns.barplot(data=freq_dtm_ethereum.head(10), x='term',
             y='frequency').set_title('Frequent terms in DTM')
 plt.tight_layout()
 plt.savefig("graphs/ethereum_dtm.svg")
+plt.savefig("../projcryptocurrently/static/graphs/ethereum_dtm.svg")
 
 
 sns.barplot(data=freq_ngram_ethereum.head(10), x='term',
             y='frequency').set_title('Frequent terms in Ngram')
 plt.savefig("graphs/ethereum_ngram.svg")
+plt.savefig("../projcryptocurrently/static/graphs/ethereum_ngram.svg")
 
 sns.barplot(data=freq_tfidf_ethereum.head(10), x='term',
             y='frequency').set_title('Frequent terms in TFIDF')
 plt.tight_layout()
 plt.savefig("graphs/ethereum_tfidf.svg")
+plt.savefig("../projcryptocurrently/static/graphs/ethereum_tfidf.svg")
 
 ethereum_cleaned = pd.read_csv('out/cleaned_Ethereum.csv')
-# create_wordcloud(ethereum_cleaned,"ethereum")
+create_wordcloud(ethereum_cleaned,"ethereum")
 
 #Tether
 sns.barplot(data=freq_dtm_tether.head(10), x='term',
             y='frequency').set_title('Frequent terms in DTM')
 plt.tight_layout()
 plt.savefig("graphs/tether_dtm.svg")
+plt.savefig("../projcryptocurrently/static/graphs/tether_dtm.svg")
 
 sns.barplot(data=freq_ngram_tether.head(10), x='term',
             y='frequency').set_title('Frequent terms in Ngram')
 plt.savefig("graphs/tether_ngram.svg")
+plt.savefig("../projcryptocurrently/static/graphs/tether_ngram.svg")
 
 sns.barplot(data=freq_tfidf_tether.head(10), x='term',
             y='frequency').set_title('Frequent terms in TFIDF')
 plt.tight_layout()
 plt.savefig("graphs/tether_tfidf.svg")
+plt.savefig("../projcryptocurrently/static/graphs/tether_tfidf.svg")
 
 tether_cleaned = pd.read_csv('out/cleaned_Tether.csv')
-# create_wordcloud(tether_cleaned,"tether")
+create_wordcloud(tether_cleaned,"tether")
 
 #BNB
 sns.barplot(data=freq_dtm_bnb.head(10), x='term',
             y='frequency').set_title('Frequent terms in DTM')
 plt.tight_layout()
 plt.savefig("graphs/bnb_dtm.svg")
+plt.savefig("../projcryptocurrently/static/graphs/bnb_dtm.svg")
 
 sns.barplot(data=freq_ngram_bnb.head(10), x='term',
             y='frequency').set_title('Frequent terms in Ngram')
 plt.savefig("graphs/bnb_ngram.svg")
+plt.savefig("../projcryptocurrently/static/graphs/bnb_ngram.svg")
 
 sns.barplot(data=freq_tfidf_bnb.head(10), x='term',
             y='frequency').set_title('Frequent terms in TFIDF')
 plt.tight_layout()
 plt.savefig("graphs/bnb_tfidf.svg")
+plt.savefig("../projcryptocurrently/static/graphs/bnb_tfidf.svg")
 
 bnb_cleaned = pd.read_csv('out/cleaned_BNB.csv')
-# create_wordcloud(bnb_cleaned,"BNB")
+create_wordcloud(bnb_cleaned,"BNB")
 
 #USDC
 sns.barplot(data=freq_dtm_usdc.head(10), x='term',
             y='frequency').set_title('Frequent terms in DTM')
 plt.tight_layout()
 plt.savefig("graphs/usdc_dtm.svg")
+plt.savefig("../projcryptocurrently/static/graphs/usdc_dtm.svg")
 
 sns.barplot(data=freq_ngram_usdc.head(10), x='term',
             y='frequency').set_title('Frequent terms in Ngram')
 plt.savefig("graphs/usdc_ngram.svg")
+plt.savefig("../projcryptocurrently/static/graphs/usdc_ngram.svg")
 
 sns.barplot(data=freq_tfidf_usdc.head(10), x='term',
             y='frequency').set_title('Frequent terms in TFIDF')
 plt.tight_layout()
 plt.savefig("graphs/usdc_tfidf.svg")
+plt.savefig("../projcryptocurrently/static/graphs/usdc_tfidf.svg")
 
 usdc_cleaned = pd.read_csv('out/cleaned_USD Coin.csv')
-# create_wordcloud(usdc_cleaned,"USDC")
+create_wordcloud(usdc_cleaned,"USDC")
 
 #XRP
 sns.barplot(data=freq_dtm_XRP.head(10), x='term',
             y='frequency').set_title('Frequent terms in DTM')
 plt.tight_layout()
 plt.savefig("graphs/XRP_dtm.svg")
+plt.savefig("../projcryptocurrently/static/graphs/XRP_dtm.svg")
 
 sns.barplot(data=freq_ngram_XRP.head(10), x='term',
             y='frequency').set_title('Frequent terms in Ngram')
 plt.savefig("graphs/XRP_ngram.svg")
+plt.savefig("../projcryptocurrently/static/graphs/XRP_ngram.svg")
 
 sns.barplot(data=freq_tfidf_XRP.head(10), x='term',
             y='frequency').set_title('Frequent terms in TFIDF')
 plt.tight_layout()
 plt.savefig("graphs/XRP_tfidf.svg")
+plt.savefig("../projcryptocurrently/static/graphs/XRP_tfidf.svg")
 
 XRP_cleaned = pd.read_csv('out/cleaned_USD Coin.csv')
-# create_wordcloud(XRP_cleaned,"XRP")
+create_wordcloud(XRP_cleaned,"XRP")

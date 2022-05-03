@@ -58,5 +58,10 @@ def coinview(request, coin_name):
     context['coin_description'] = getCoinDesc(coin_name)
     context['value'] = curValue(coin_name)
     context['short'] = shortName(coin_name)
+    context['coin_dtm'] = coin_name + "_dtm.svg"
+    context['coin_ngram'] = coin_name + "_ngram.svg"
+    context['coin_tfidf'] = coin_name + "_tfidf.svg"
+    context['coin_wordcloud'] = coin_name + "_wordcloud.svg"
+
 
     return render(request, 'coin.html', context)

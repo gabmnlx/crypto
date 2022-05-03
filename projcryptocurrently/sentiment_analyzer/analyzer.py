@@ -60,13 +60,13 @@ def analyzerOutput(coin_name):
     elif coin_name == "tether":
         y = pd.read_csv("sentiment_analyzer/out/" + coins[3])
 
-    elif coin_name == "usdcoin":
+    elif coin_name == "usdc":
         y = pd.read_csv("sentiment_analyzer/out/" + coins[4])
 
     elif coin_name == "xrp":
         y = pd.read_csv("sentiment_analyzer/out/" + coins[5])
 
-    elif coin_name == "binance":
+    elif coin_name == "bnb":
         y = pd.read_csv("sentiment_analyzer/out/" + coins[1])
 
     

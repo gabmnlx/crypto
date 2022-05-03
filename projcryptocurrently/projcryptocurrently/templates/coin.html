@@ -1,5 +1,5 @@
 {% load static %}
-
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -50,13 +50,14 @@
             </section>
             <section class="sentiment-graphs">
                 <div id="ngram">
-                    
+                    <div class="graph"><img src="../static/graphs/{{coin_dtm}}" alt="DTM"></div>
+                    <div class="graph"><img src="../static/graphs/{{coin_ngram}}" alt="n-gram"></div>
+                    <div class="graph"><img src="../static/graphs/{{coin_tfidf}}" alt="tfidf"></div>
+                    <div class="graph"><img src="../static/graphs/{{coin_wordcloud}}" alt="wordcloud"></div>
                 </div>
             </section>
         </div>
     </body>
     <footer>
-        
     </footer>
 </html>
-
