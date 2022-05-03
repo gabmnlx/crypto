@@ -13,6 +13,7 @@
     </head>
     <body coin-name="{{ coin_name }}">
         <div class="main">
+            <p id="back-text" coin-name="{{ coin_name }}">{{ short }}</p>
             <button onclick="history.back()"><img id="back-button" src="{% static 'css/images/left-50.png' %}" alt="Back Button"></button>
             <section class="coin-info">
                 <div class="name-desc">
