@@ -2,7 +2,7 @@ from http.client import HTTPResponse
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
-from coin_details import getCoinDesc, curValue, shortName, getFluctuation
+from coin_details import getCoinDesc, curValue, shortName, getFluctuation, eurToUsdConvert
 
 from sentiment_analyzer.extraction import extract
 from sentiment_analyzer.cleaner import clean
@@ -24,6 +24,7 @@ def homepageview(request):
     # context['date'] = day
     # context['time'] = time
     context['day'] = calendar.day_name[date.today().weekday()]
+    context['conversionRate'] = eurToUsdConvert()
 
     context['bitcoin_value'] = curValue("bitcoin")
     context['ethereum_value'] = curValue("ethereum")
@@ -51,6 +52,7 @@ def homepageview(request):
 def coinview(request, coin_name):
     output = analyzerOutput(coin_name)
     context = {}
+    context['conversionRate'] = eurToUsdConvert()
     context['positive'] = round(output[0], 2)
     context['negative'] = round(output[1], 2)
     context['compound_score'] = round(output[2], 2)

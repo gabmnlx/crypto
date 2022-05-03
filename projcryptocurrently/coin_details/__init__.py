@@ -51,7 +51,21 @@ def curValue(coin_name):
     doc = BeautifulSoup(result.text, "html.parser") 
 
     priceClass = doc.find("div", class_="priceValue")
+    if coin_name == "usdcoin":
+        return priceClass.find("span").text + "00" # for consistency, cuz the scraped = 2 dec. places while stream = 4 dec. places
     return priceClass.find("span").text 
+    
+
+def eurToUsdConvert():
+    url = "https://www.x-rates.com/calculator/?from=EUR&to=USD&amount=1"
+
+    result = requests.get(url)
+
+    doc = BeautifulSoup(result.text, "html.parser")
+
+    price = doc.find("div", class_="ccOutputBx")
+
+    return price.findAll("span")[1].text[:4]
 
 # def curValueToFile():
 #     values = []
