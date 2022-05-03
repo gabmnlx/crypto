@@ -129,3 +129,80 @@ def getFluctuation(coin_name):
 
     elif coin_name == "binance":
         return 99.99
+
+def coin_dtm(coin_name):
+    if coin_name == "bitcoin":
+        return "bitcoin_dtm.svg"
+
+    elif coin_name == "ethereum":
+        return "ethereum_dtm.svg"
+    
+    elif coin_name == "tether":
+        return "tether_dtm.svg"
+
+    elif coin_name == "usdcoin":
+        return "usdc_dtm.svg"
+
+    elif coin_name == "xrp":
+        return "XRP_dtm.svg"
+
+    elif coin_name == "binance":
+        return "bnb_dtm.svg"
+
+def coin_ngram(coin_name):
+    if coin_name == "bitcoin":
+        return "bitcoin_ngram.svg"
+
+    elif coin_name == "ethereum":
+        return "ethereum_ngram.svg"
+    
+    elif coin_name == "tether":
+        return "tether_ngram.svg"
+
+    elif coin_name == "usdcoin":
+        return "usdc_ngram.svg"
+
+    elif coin_name == "xrp":
+        return "XRP_ngram.svg"
+
+    elif coin_name == "binance":
+        return "bnb_ngram.svg"
+
+def coin_tfidf(coin_name):
+    if coin_name == "bitcoin":
+        return "bitcoin_tfidf.svg"
+
+    elif coin_name == "ethereum":
+        return "ethereum_tfidf.svg"
+    
+    elif coin_name == "tether":
+        return "tether_tfidf.svg"
+
+    elif coin_name == "usdcoin":
+        return "usdc_tfidf.svg"
+
+    elif coin_name == "xrp":
+        return "XRP_tfidf.svg"
+
+    elif coin_name == "binance":
+        return "bnb_tfidf.svg"
+
+def coin_wordcloud(coin_name):
+    if coin_name == "bitcoin":
+        return "bitcoin_wordcloud.svg"
+
+    elif coin_name == "ethereum":
+        return "ethereum_wordcloud.svg"
+    
+    elif coin_name == "tether":
+        return "tether_wordcloud.svg"
+
+    elif coin_name == "usdcoin":
+        return "usdc_wordcloud.svg"
+
+    elif coin_name == "xrp":
+        return "XRP_wordcloud.svg"
+
+    elif coin_name == "binance":
+        return "bnb_wordcloud.svg"
+

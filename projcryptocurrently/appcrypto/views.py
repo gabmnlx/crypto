@@ -2,7 +2,7 @@ from http.client import HTTPResponse
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
-from coin_details import getCoinDesc, curValue, shortName, getFluctuation, eurToUsdConvert
+from coin_details import getCoinDesc, curValue, shortName, getFluctuation, eurToUsdConvert, coin_dtm, coin_ngram,coin_tfidf,coin_wordcloud
 
 from sentiment_analyzer.extraction import extract
 from sentiment_analyzer.cleaner import clean
@@ -60,5 +60,9 @@ def coinview(request, coin_name):
     context['coin_description'] = getCoinDesc(coin_name)
     context['value'] = curValue(coin_name)
     context['short'] = shortName(coin_name)
+    context['coin_dtm'] = coin_dtm(coin_name)
+    context['coin_ngram'] = coin_ngram(coin_name)
+    context['coin_tfidf'] = coin_tfidf(coin_name)
+    context['coin_wordcloud'] = coin_wordcloud(coin_name)
 
     return render(request, 'coin.html', context)
