@@ -16,12 +16,25 @@
     <div id="dayOfTheWeek">{{ day }}<!-- will be invisible --></div>
     <div id="conversionRate">{{ conversionRate }}<!-- will be invisible --></div>
 
+    <button id="tour-button" type="button"><img src="../static/css/images/question-mark-96.png" alt=""></button>
+    <div id="tour-modal">
+        <div id="modal-content">
+            <h3>CryptoCurrently Quick Tour</h3>
+            <p>1. Pick among the available cryptocurrencies in the website.</p>
+            <img src="../static/css/images/sample1.png" alt="">
+            <p>2. Inside the next page, you will see the information about the cryptocurrency you picked.</p>
+            <img src="../static/css/images/sample2.png" alt="">
+            <p>3. You can also check out the charts and the picture cloud for additional information.</p>
+            <span id="modal-ok">OK</span>
+        </div>
+    </div>
+
     <div id="landing">
         <div id="nav">
             <div id="datetime">
                 <div class="date" id="date" onload="showTime()"></div>
                 <div class="time" id="time" onload="showTime()"> PHT</div>
-                <script src="{% static "js/app.js" %}" type="text/javascript" defer></script>
+                <script src="{% static 'js/app.js' %}" type="text/javascript" defer></script>
             </div>
     
             <div class="first-col">
@@ -57,7 +70,7 @@
             </div>
             <a id="down-link" href="#coin-container">
                 <div id="down">
-                    <img src="{% static 'css/images/down-64.png' %}" alt="">
+                    <img src="{% static 'css/images/down-100-b.png' %}" alt="">
                 </div>
             </a>
         </div>
@@ -206,5 +219,26 @@
     </div>
 
 </div>
+<script>
+var modal = document.getElementById("tour-modal");
+var btn = document.getElementById("tour-button");
+var span = document.getElementById("modal-ok");
+
+btn.onclick = function() {
+    modal.style.display = "block";
+    console.log("Click");
+}
+
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+        console.log("window");
+    }
+}
+</script>
 
 {% endblock %}
