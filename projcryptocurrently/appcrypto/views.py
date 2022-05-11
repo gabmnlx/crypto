@@ -1,9 +1,10 @@
+from codecs import BOM_BE
 from http.client import HTTPResponse
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
 from coin_details import getCoinDesc, curValue, shortName, eurToUsdConvert, coin_dtm, coin_ngram,coin_tfidf,coin_wordcloud,getCompScoreFluctuation
-from coin_details import filterCoins
+from coin_details import filterCoins, findPositiveAndNegativeFlucs, getCoinsWithMorePositiveSentimentsThanNegative, getCoinsWithMoreNegativeSentimentsThanPositive
 
 from sentiment_analyzer.extraction import create_var, create_api, search_to_df, search_tweets
 from sentiment_analyzer.cleaner import clean
@@ -33,6 +34,16 @@ import calendar
 #     extract(consumer_key, consumer_key_secret, access_token, access_token_secret)
 
 
+# running analyzer output for all coins
+btcAnalyzerOut = analyzerOutput("bitcoin")
+ethAnalyzerOut = analyzerOutput("ethereum")
+xrpAnalyzerOut = analyzerOutput("xrp")
+usdcAnalyzerOut = analyzerOutput("usdcoin")
+bnbAnalyzerOut = analyzerOutput("binance")
+usdtAnalyzerOut = analyzerOutput("tether")
+
+analyzerOutList = [btcAnalyzerOut, ethAnalyzerOut, xrpAnalyzerOut, usdcAnalyzerOut, bnbAnalyzerOut, usdtAnalyzerOut]
+
 
 # 2 most recent values for each coin:
 btcPrevVal = 21.5
@@ -42,16 +53,12 @@ usdcPrevVal = 21.5
 bnbPrevVal = 21.5
 usdtPrevVal = 21.5
 
-btcTwoVals = [btcPrevVal, round(analyzerOutput("bitcoin")[2], 2)]
-ethTwoVals = [ethPrevVal, round(analyzerOutput("ethereum")[2], 2)]
-xrpTwoVals = [xrpPrevVal, round(analyzerOutput("xrp")[2], 2)]
-usdcTwoVals = [usdcPrevVal, round(analyzerOutput("usdcoin")[2], 2)]
-bnbTwoVals = [bnbPrevVal, round(analyzerOutput("binance")[2], 2)]
-usdtTwoVals = [usdtPrevVal, round(analyzerOutput("tether")[2], 2)]
-
-coinsWithPositiveFlucs = []
-
-
+btcTwoVals = [btcPrevVal, round(btcAnalyzerOut[2], 2)]
+ethTwoVals = [ethPrevVal, round(ethAnalyzerOut[2], 2)]
+xrpTwoVals = [xrpPrevVal, round(xrpAnalyzerOut[2], 2)]
+usdcTwoVals = [usdcPrevVal, round(usdcAnalyzerOut[2], 2)]
+bnbTwoVals = [bnbPrevVal, round(bnbAnalyzerOut[2], 2)]
+usdtTwoVals = [usdtPrevVal, round(usdtAnalyzerOut[2], 2)]
 
 def homepageview(request):
     context = {}
@@ -91,21 +98,15 @@ def homepageview(request):
     context['bnb_comp_score_fluc_arrow'] = getCompScoreFluctuation(bnbTwoVals) >= 0
     context['tether_comp_score_fluc_arrow'] = getCompScoreFluctuation(usdtTwoVals) >= 0
 
-    if filterCoins(btcTwoVals):
-        coinsWithPositiveFlucs.append("btc")
-    if filterCoins(ethTwoVals):
-        coinsWithPositiveFlucs.append("eth")
-    if filterCoins(xrpTwoVals):
-        coinsWithPositiveFlucs.append("xrp")
-    if filterCoins(usdcTwoVals):
-        coinsWithPositiveFlucs.append("usdc")
-    if filterCoins(bnbTwoVals):
-        coinsWithPositiveFlucs.append("bnb")
-    if filterCoins(usdtTwoVals):
-        coinsWithPositiveFlucs.append("usdt")
-
-    context['positive_flucs'] = coinsWithPositiveFlucs
-
+    # for filter values
+    context['positive_flucs'] = findPositiveAndNegativeFlucs(btcTwoVals, ethTwoVals, xrpTwoVals, usdcTwoVals, bnbTwoVals, usdtTwoVals)[0]
+    context['negative_flucs'] = findPositiveAndNegativeFlucs(btcTwoVals, ethTwoVals, xrpTwoVals, usdcTwoVals, bnbTwoVals, usdtTwoVals)[1]
+    context['max_positive_sentiment'] = analyzerOutList.index(max(analyzerOutList, key=lambda x: x[0]))
+    context['min_positive_sentiment'] = analyzerOutList.index(min(analyzerOutList, key=lambda x: x[0]))
+    context['max_negative_sentiment'] = analyzerOutList.index(max(analyzerOutList, key=lambda x: x[1]))
+    context['min_negative_sentiment'] = analyzerOutList.index(min(analyzerOutList, key=lambda x: x[1]))
+    context['more_positive_sentiments'] = getCoinsWithMorePositiveSentimentsThanNegative(analyzerOutList)
+    context['more_negative_sentiments'] = getCoinsWithMoreNegativeSentimentsThanPositive(analyzerOutList)
     
     return render(request, 'index.html', context)
 

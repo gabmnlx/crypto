@@ -1,10 +1,8 @@
 function getExchangeRate() {
     const exchangeRateDiv = document.getElementById("exchange-rate")
-
+    
     const coinName = window.location.href.slice(27)
-
-    const conversionRate = parseFloat(document.getElementById("conversionRate").textContent)
-
+    
     if (coinName == "bitcoin") {
         var ws = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@trade')
         var decimals = 2
@@ -22,10 +20,11 @@ function getExchangeRate() {
         var decimals = 4
     }
     else if (coinName == "binance") {
-        var ws = new WebSocket('wss://stream.binance.com:9443/ws/eurusdt@trade')
-        var decimals = 4
+        var ws = new WebSocket('wss://stream.binance.com:9443/ws/bnbusdt@trade')
+        var decimals = 2
     }
     else if (coinName == "tether") {
+        const conversionRate = parseFloat(document.getElementById("conversionRate").textContent)
         var ws = new WebSocket('wss://stream.binance.com:9443/ws/eurusdt@trade')
         var decimals = 4
     }

@@ -1,3 +1,4 @@
+from doctest import OutputChecker
 from bs4 import BeautifulSoup
 import requests
 
@@ -193,3 +194,56 @@ def coin_wordcloud(coin_name):
 def filterCoins(arr):
     # positive flucs
     return getCompScoreFluctuation(arr) > 0
+
+def findPositiveAndNegativeFlucs(btcarr, etharr, xrparr, usdcarr, bnbarr, usdtarr):
+    coinsWithPositiveFlucs = []
+    coinsWithNegativeFlucs = []
+
+    if filterCoins(btcarr):
+        coinsWithPositiveFlucs.append("bitcoin")
+    else:
+        coinsWithNegativeFlucs.append("bitcoin")
+
+    if filterCoins(etharr):
+        coinsWithPositiveFlucs.append("ethereum")
+    else:
+        coinsWithNegativeFlucs.append("ethereum")
+
+    if filterCoins(xrparr):
+        coinsWithPositiveFlucs.append("xrp")
+    else:
+        coinsWithNegativeFlucs.append("xrp")
+
+    if filterCoins(usdcarr):
+        coinsWithPositiveFlucs.append("usd")
+    else:
+        coinsWithNegativeFlucs.append("usd")
+
+    if filterCoins(bnbarr):
+        coinsWithPositiveFlucs.append("bnb")
+    else:
+        coinsWithNegativeFlucs.append("bnb")
+
+    if filterCoins(usdtarr):
+        coinsWithPositiveFlucs.append("tether")
+    else:
+        coinsWithNegativeFlucs.append("tether")
+
+
+    return [list(set(coinsWithPositiveFlucs)), list(set(coinsWithNegativeFlucs))]
+
+def getCoinsWithMorePositiveSentimentsThanNegative(arr):
+    outputArr = []
+    for coin in arr:
+        if (coin[0] > coin[1]):
+            outputArr.append(arr.index(coin))
+    
+    return outputArr
+
+def getCoinsWithMoreNegativeSentimentsThanPositive(arr):
+    outputArr = []
+    for coin in arr:
+        if coin[1] > coin[0]:
+            outputArr.append(arr.index(coin))
+
+    return outputArr

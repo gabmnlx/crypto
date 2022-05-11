@@ -7,10 +7,12 @@
 <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
 {% endblock %}
 
-{% block header %} {% endblock %}
+{% block header %}
+{% endblock %}
 
 {% block content %}
-<div id="conversionRate">{{ conversionRate }}<!-- will be invisible --></div>
+
+<script src="{% static "js/coin-app.js" %}" type="text/javascript" defer></script>
 <div class="main">
     <p id="back-text" coin-name="{{ coin_name }}">{{ short }}</p>
     <button onclick="history.back()"><img id="back-button" src="{% static 'css/images/left-50.png' %}" alt="Back Button"></button>
@@ -24,7 +26,8 @@
         </div>
         <div id="exchange-container">
             <div>
-                <h2 id="exchange-rate">{{ value }}</h2>
+                <div id="conversionRate">{{ conversionRate }}</div>
+                <div id="exchange-rate">{{ value }}</div>
                 <p id="exchange-currency">{{ short }} / USD</p>
             </div>
             <h3>{{ rate_change }}12.67<span class="percent">%</span></h3>

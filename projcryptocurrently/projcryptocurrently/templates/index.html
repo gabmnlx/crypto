@@ -67,142 +67,178 @@
         <div id="coin-text">
             Available CryptoCurrencies
         </div>
+        <div id="filter-feature">
+            <label for="crypto-filters" id="filter-label">Filter by:</label>
+            <select name="crypto-filters" id="crypto-filters">
+                <option value="no-filter">-----</option>
+                <option value="positive-fluctuation">Positive Fluctuations</option>
+                <option value="negative-fluctuation">Negative Fluctuations</option>
+                <option value="max-positive-sentiment">Highest % of Positive Sentiments</option>
+                <option value="min-positive-sentiment">Lowest % of Positive Sentiments</option>
+                <option value="max-negative-sentiment">Highest % of Negative Sentiments</option>
+                <option value="min-negative-sentiment">Lowest % of Negative Sentiments</option>
+                <option value="more-positive-sentiments">Positive Sentiments > Negative Sentiments</option>
+                <option value="more-negative-sentiments">Negative Sentiments > Positive Sentiments</option>
+            </select>
+            <button id="filter-button" class="filter-buttons">Filter</button>
+            <button id="reset-button" class="filter-buttons">Reset</button>
+        </div>
         <div id="coins">
-            <a href="/coin/bitcoin" class="btn" id="bitcoin">
-                <div class="top-text">
-                    <h4 id="btc-price" class="price"> {{ bitcoin_value }} </h4>
-    
-                    <div class="fluctuation">
-                        {% if bitcoin_comp_score_fluc_arrow %}
-                        <img class="fluctuation-arrow" src="../static/css/images/up-arrow.png" alt="">
-                        {% else %}
-                        <img class="fluctuation-arrow" src="../static/css/images/down-arrow.png" alt="">
-                        {% endif %}
-                        <h3 class="fluctuation-percent"> {{ bitcoin_comp_score }}%</h3>
+            <div id="bitcoin" class="btn">
+                <a href="/coin/bitcoin" class="coin-link" >
+                    <div class="top-text">
+                        <h4 id="btc-price" class="price"> {{ bitcoin_value }} </h4>
+        
+                        <div class="fluctuation">
+                            {% if bitcoin_comp_score_fluc_arrow %}
+                            <img class="fluctuation-arrow" src="../static/css/images/up-arrow.png" alt="">
+                            {% else %}
+                            <img class="fluctuation-arrow" src="../static/css/images/down-arrow.png" alt="">
+                            {% endif %}
+                            <h3 class="fluctuation-percent"> {{ bitcoin_comp_score }}%</h3>
+                        </div>
                     </div>
-                </div>
 
-                <div class="bottom-text">
-                    <h1 class="coin-name">Bitcoin</h1>
-                    <h2 class="short-name"> BTC <span class="diff-font">/</span> USD </h2> 
-                </div>
-
-                <img class="logo" src="../static/css/images/bitcoin-logo.webp" alt="">
-            </a>
-
-
-            <a href="/coin/ethereum" class="btn" id="ethereum">
-                <div class="top-text">
-                    <h4 id="eth-price" class="price"> {{ ethereum_value }} </h4>
-    
-                    <div class="fluctuation">
-                        {% if ethereum_comp_score_fluc_arrow %}
-                        <img class="fluctuation-arrow" src="../static/css/images/up-arrow.png" alt="">
-                        {% else %}
-                        <img class="fluctuation-arrow" src="../static/css/images/down-arrow.png" alt="">
-                        {% endif %}
-                        <h3 class="fluctuation-percent"> {{ ethereum_comp_score }}%</h3>
+                    <div class="bottom-text">
+                        <h1 class="coin-name">Bitcoin</h1>
+                        <h2 class="short-name"> BTC <span class="diff-font">/</span> USD </h2> 
                     </div>
-                </div>
 
-                <div class="bottom-text">
-                    <h1 class="coin-name">Ethereum</h1>
-                    <h2 class="short-name"> ETH <span class="diff-font">/</span> USD </h2> 
-                </div>
+                    <img class="logo" src="../static/css/images/bitcoin-logo.webp" alt="">
+                </a>
+            </div>
 
-                <img class="logo" src="../static/css/images/ethereum-logo.webp" alt="">
-            </a>
-
-            <a href="/coin/xrp" class="btn" id="xrp">
-                <div class="top-text">
-                    <h4 id="xrp-price" class="price"> {{ xrp_value }} </h4>
-    
-                    <div class="fluctuation">
-                        {% if xrp_comp_score_fluc_arrow %}
-                        <img class="fluctuation-arrow" src="../static/css/images/up-arrow.png" alt="">
-                        {% else %}
-                        <img class="fluctuation-arrow" src="../static/css/images/down-arrow.png" alt="">
-                        {% endif %}
-                        <h3 class="fluctuation-percent"> {{ xrp_comp_score }}%</h3>
+            <div id="ethereum" class="btn">
+                <a href="/coin/ethereum" class="coin-link">
+                    <div class="top-text">
+                        <h4 id="eth-price" class="price"> {{ ethereum_value }} </h4>
+        
+                        <div class="fluctuation">
+                            {% if ethereum_comp_score_fluc_arrow %}
+                            <img class="fluctuation-arrow" src="../static/css/images/up-arrow.png" alt="">
+                            {% else %}
+                            <img class="fluctuation-arrow" src="../static/css/images/down-arrow.png" alt="">
+                            {% endif %}
+                            <h3 class="fluctuation-percent"> {{ ethereum_comp_score }}%</h3>
+                        </div>
                     </div>
-                </div>
-
-                <div class="bottom-text">
-                    <h1 class="coin-name">XRP</h1>
-                    <h2 class="short-name"> XRP <span class="diff-font">/</span> USD </h2> 
-                </div>
-
-                <img class="logo" src="../static/css/images/xrp-logo.webp" alt="">
-            </a>
-
-            <a href="/coin/usdcoin" class="btn" id="usd">
-                <div class="top-text">
-                    <h4 id="usdc-price" class="price"> {{ usd_value }} </h4>
     
-                    <div class="fluctuation">
-                        {% if usd_comp_score_fluc_arrow %}
-                        <img class="fluctuation-arrow" src="../static/css/images/up-arrow.png" alt="">
-                        {% else %}
-                        <img class="fluctuation-arrow" src="../static/css/images/down-arrow.png" alt="">
-                        {% endif %}
-                        <h3 class="fluctuation-percent"> {{ usd_comp_score }}%</h3>
+                    <div class="bottom-text">
+                        <h1 class="coin-name">Ethereum</h1>
+                        <h2 class="short-name"> ETH <span class="diff-font">/</span> USD </h2> 
                     </div>
-                </div>
-
-                <div class="bottom-text">
-                    <h1 class="coin-name">USD Coin</h1>
-                    <h2 class="short-name"> USDC <span class="diff-font">/</span> USD </h2> 
-                </div>
-
-                <img class="logo" src="../static/css/images/usdc-logo.webp" alt="">
-            </a>
-
-            <a href="/coin/binance" class="btn" id="bnb">
-                <div class="top-text">
-                    <h4 id="bnb-price" class="price"> {{ bnb_value }} </h4>
     
-                    <div class="fluctuation">
-                        {% if bnb_comp_score_fluc_arrow %}
-                        <img class="fluctuation-arrow" src="../static/css/images/up-arrow.png" alt="">
-                        {% else %}
-                        <img class="fluctuation-arrow" src="../static/css/images/down-arrow.png" alt="">
-                        {% endif %}
-                        <h3 class="fluctuation-percent"> {{ bnb_comp_score }}%</h3>
+                    <img class="logo" src="../static/css/images/ethereum-logo.webp" alt="">
+                </a>
+            </div>
+
+            <div id="xrp" class="btn">
+                <a href="/coin/xrp" class="coin-link">
+                    <div class="top-text">
+                        <h4 id="xrp-price" class="price"> {{ xrp_value }} </h4>
+        
+                        <div class="fluctuation">
+                            {% if xrp_comp_score_fluc_arrow %}
+                            <img class="fluctuation-arrow" src="../static/css/images/up-arrow.png" alt="">
+                            {% else %}
+                            <img class="fluctuation-arrow" src="../static/css/images/down-arrow.png" alt="">
+                            {% endif %}
+                            <h3 class="fluctuation-percent"> {{ xrp_comp_score }}%</h3>
+                        </div>
                     </div>
-                </div>
-
-                <div class="bottom-text">
-                    <h1 class="coin-name">BNB</h1>
-                    <h2 class="short-name"> BNB <span class="diff-font">/</span> USD </h2> 
-                </div>
-
-                <img class="logo" src="../static/css/images/bnb-logo.webp" alt=""></a>
-
-            <a href="/coin/tether" class="btn" id="tether">
-                <div class="top-text">
-                    <h4 id="usdt-price" class="price"> {{ tether_value }} </h4>
     
-                    <div class="fluctuation">
-                        {% if tether_comp_score_fluc_arrow %}
-                        <img class="fluctuation-arrow" src="../static/css/images/up-arrow.png" alt="">
-                        {% else %}
-                        <img class="fluctuation-arrow" src="../static/css/images/down-arrow.png" alt="">
-                        {% endif %}
-                        <h3 class="fluctuation-percent"> {{ tether_comp_score }}%</h3>
+                    <div class="bottom-text">
+                        <h1 class="coin-name">XRP</h1>
+                        <h2 class="short-name"> XRP <span class="diff-font">/</span> USD </h2> 
                     </div>
-                </div>
+    
+                    <img class="logo" src="../static/css/images/xrp-logo.webp" alt="">
+                </a>
+            </div>
 
-                <div class="bottom-text">
-                    <h1 class="coin-name">Tether</h1>
-                    <h2 class="short-name"> USDT <span class="diff-font">/</span> USD </h2> 
-                </div>
+            <div id="usd" class="btn">
+                <a href="/coin/usdcoin" class="coin-link">
+                    <div class="top-text">
+                        <h4 id="usdc-price" class="price"> {{ usd_value }} </h4>
+        
+                        <div class="fluctuation">
+                            {% if usd_comp_score_fluc_arrow %}
+                            <img class="fluctuation-arrow" src="../static/css/images/up-arrow.png" alt="">
+                            {% else %}
+                            <img class="fluctuation-arrow" src="../static/css/images/down-arrow.png" alt="">
+                            {% endif %}
+                            <h3 class="fluctuation-percent"> {{ usd_comp_score }}%</h3>
+                        </div>
+                    </div>
+    
+                    <div class="bottom-text">
+                        <h1 class="coin-name">USD Coin</h1>
+                        <h2 class="short-name"> USDC <span class="diff-font">/</span> USD </h2> 
+                    </div>
+    
+                    <img class="logo" src="../static/css/images/usdc-logo.webp" alt="">
+                </a>
+            </div>
 
-                <img class="logo" src="../static/css/images/tether-logo.webp" alt=""></a>
+            <div id="bnb" class="btn">
+                <a href="/coin/binance" class="coin-link">
+                    <div class="top-text">
+                        <h4 id="bnb-price" class="price"> {{ bnb_value }} </h4>
+        
+                        <div class="fluctuation">
+                            {% if bnb_comp_score_fluc_arrow %}
+                            <img class="fluctuation-arrow" src="../static/css/images/up-arrow.png" alt="">
+                            {% else %}
+                            <img class="fluctuation-arrow" src="../static/css/images/down-arrow.png" alt="">
+                            {% endif %}
+                            <h3 class="fluctuation-percent"> {{ bnb_comp_score }}%</h3>
+                        </div>
+                    </div>
+    
+                    <div class="bottom-text">
+                        <h1 class="coin-name">BNB</h1>
+                        <h2 class="short-name"> BNB <span class="diff-font">/</span> USD </h2> 
+                    </div>
+    
+                    <img class="logo" src="../static/css/images/bnb-logo.webp" alt="">
+                </a>
+            </div>
+
+            <div id="tether" class="btn">
+                <a href="/coin/tether" class="coin-link">
+                    <div class="top-text">
+                        <h4 id="usdt-price" class="price"> {{ tether_value }} </h4>
+        
+                        <div class="fluctuation">
+                            {% if tether_comp_score_fluc_arrow %}
+                            <img class="fluctuation-arrow" src="../static/css/images/up-arrow.png" alt="">
+                            {% else %}
+                            <img class="fluctuation-arrow" src="../static/css/images/down-arrow.png" alt="">
+                            {% endif %}
+                            <h3 class="fluctuation-percent"> {{ tether_comp_score }}%</h3>
+                        </div>
+                    </div>
+    
+                    <div class="bottom-text">
+                        <h1 class="coin-name">Tether</h1>
+                        <h2 class="short-name"> USDT <span class="diff-font">/</span> USD </h2> 
+                    </div>
+    
+                    <img class="logo" src="../static/css/images/tether-logo.webp" alt="">
+                </a>
+            </div>
         </div>
     </div>
 
-    <div class="testclass" style="height: 100vh; color: black; margin-top:30vh;">
-        <h1> {{ positive_flucs }}</h1>
+    <div class="testclass" style="height: 100vh; color: black; margin-top:100vh; display: none;">
+        <h1 id="positive-fluc-filter">{{ positive_flucs }}</h1>
+        <h1 id="negative-fluc-filter">{{ negative_flucs }}</h1>
+        <h1 id="max-positive-sentiment">{{ max_positive_sentiment }}</h1>
+        <h1 id="min-positive-sentiment">{{ min_positive_sentiment }}</h1>
+        <h1 id="max-negative-sentiment">{{ max_negative_sentiment }}</h1>
+        <h1 id="min-negative-sentiment">{{ min_negative_sentiment }}</h1>
+        <h1 id="more-positive-sentiments">{{ more_positive_sentiments }}</h1>
+        <h1 id="more-negative-sentiments">{{ more_negative_sentiments }}</h1>
     </div>
 
 </div>

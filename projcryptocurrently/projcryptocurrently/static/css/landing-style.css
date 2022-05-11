@@ -184,31 +184,36 @@ html {
 #coins {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    gap: 40px;
     align-items: center;
     margin-top: 40px;
+    position: relative;
 }
 
 #coins .btn {
-    text-decoration: none;
     width: 30%;
     height: calc(.3 * calc(100vw - 144px));
     max-height: 376px;
     position: relative;
     overflow: hidden;
+    /* margin-bottom: calc(.05 * (100vw - 72px)); */
+}
+
+#coins .btn .coin-link {
+    text-decoration: none;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-bottom: calc(.05 * (100vw - 72px));
+    height: 100%;
 }
 
-#coins .btn .top-text {
+#coins .btn .coin-link .top-text {
     padding: 5%;
     color: black;
     transition: .5s;
 }
 
-#coins .btn .bottom-text {
+#coins .btn .coin-link .bottom-text {
     padding: 5%;
     color: black;
     transition: .5s;
@@ -217,43 +222,43 @@ html {
     z-index: 1;
 }
 
-#coins .btn .top-text .price {
+#coins .btn .coin-link .top-text .price {
     font-size: 2em;
     font-family: "Blatant", sans-serif;
     font-weight: 400;
 }
 
-#coins .btn .top-text .fluctuation {
+#coins .btn .coin-link .top-text .fluctuation {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-#coins .btn .top-text .fluctuation .fluctuation-arrow {
+#coins .btn .coin-link .top-text .fluctuation .fluctuation-arrow {
     height: 1.5em;
 }
 
-#coins .btn .top-text .fluctuation .fluctuation-percent {
+#coins .btn .coin-link .top-text .fluctuation .fluctuation-percent {
     font-family: "Blatant", sans-serif;
     font-weight: 400;
 
     font-size: 1.5em;
 }
 
-#coins .btn .bottom-text .coin-name {
+#coins .btn .coin-link .bottom-text .coin-name {
     font-family: "Magazine Grotesk", sans-serif;
     font-weight: 700;
     font-size: 2.5em;
 }
 
-#coins .btn .bottom-text .short-name {
+#coins .btn .coin-link .bottom-text .short-name {
     font-family: "Magazine Grotesk", sans-serif;
     font-weight: 400;
 
     font-size: 1.2em;
 }
 
-#coins .btn .logo {
+#coins .btn .coin-link .logo {
     position: absolute;
     z-index: 0;
     height: 40%;
@@ -262,16 +267,16 @@ html {
     transition: .5s;
 }
 
-#coins .btn:hover .logo {
+#coins .btn .coin-link:hover .logo {
     transform: translateX(-1%);
     height: 50%;
 }
 
-#coins .btn:hover .top-text {
+#coins .btn .coin-link:hover .top-text {
     transform: translateY(10%);
 }
 
-#coins .btn:hover .bottom-text {
+#coins .btn .coin-link:hover .bottom-text {
     transform: translateY(-10%);
 }
 
@@ -309,11 +314,17 @@ html {
     #coins .btn {
         margin-bottom: 66px;
     }
+
+
 }
 
 @media screen and (max-width: 1200px) {
     .coin-name {
         font-size: 2em!important;
+    }
+
+    #coins {
+        justify-content: space-around;
     }
 }
 
@@ -340,10 +351,11 @@ html {
         padding: 0;
         margin: 32px 0;
         font-size: 2em;
+        justify-content: space-around;
     }
 
     #coins {
-        justify-content: space-between;
+        justify-content: space-around;
         margin: 0;
     }
 
@@ -411,4 +423,56 @@ html {
     #down-link {
         display: flex;
     }
+}
+
+.coin-link {
+    width: 100%;
+}
+
+.filter-invi {
+    display: none;
+}
+
+.filter-opacity-50 {
+    opacity: 0.5;
+}
+
+.filter-highlight-green {
+    border: 1px solid #558a55;
+    padding: 10px;
+    box-shadow: 10px 10px #558a55;
+}
+
+.filter-highlight-red {
+    border: 1px solid #8a5757;
+    padding: 10px;
+    box-shadow: 10px 10px #8a5757;
+}
+
+#filter-label {
+    font-size: clamp(24px, 3.5vw, 32px);
+    font-family: "Magazine Grotesk", sans-serif;
+}
+
+#crypto-filters {
+    height: clamp(24px, 3.5vw, 32px);
+    border: 2px solid black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.filter-buttons {
+    font-size: 24px;
+    padding: .2em .5em;
+    background-color: white;
+    border: 2px solid black;
+    font-family: "Magazine Grotesk", sans-serif;
+    transition: .4s ease-in-out;
+}
+
+.filter-buttons:hover {
+    transition: .4s ease-in-out;
+    background-color: black;
+    color: white;
 }
