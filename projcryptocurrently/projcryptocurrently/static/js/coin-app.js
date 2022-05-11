@@ -1,6 +1,6 @@
 function getExchangeRate() {
     const exchangeRateDiv = document.getElementById("exchange-rate")
-    
+    const conversionRate = parseFloat(document.getElementById("conversionRate").textContent)
     const coinName = window.location.href.slice(27)
     
     if (coinName == "bitcoin") {
@@ -24,7 +24,6 @@ function getExchangeRate() {
         var decimals = 2
     }
     else if (coinName == "tether") {
-        const conversionRate = parseFloat(document.getElementById("conversionRate").textContent)
         var ws = new WebSocket('wss://stream.binance.com:9443/ws/eurusdt@trade')
         var decimals = 4
     }
