@@ -103,17 +103,21 @@ html {
 }
 
 .first-col {
-    font-size: 16px;
+    font-size: 12px;
     width: 29%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .first-col span {
     font-family: 'Magazine Grotesk', sans-serif;
     font-weight: 400;
+    margin: 12px 0;
 }
 
 .second-col {
-    font-size: 32px;
+    font-size: 24px;
     width: 29%;
     display: flex;
     flex-direction: column;
@@ -123,6 +127,7 @@ html {
 .second-col span {
     font-family: 'Magazine Grotesk', sans-serif;
     font-weight: 400;
+    margin: 8px 0;
 }
 
 .nav-hr {
@@ -137,7 +142,7 @@ html {
 }
 
 #crypto-desc {
-    font-size: 24px;
+    font-size: 28px;
     font-family: 'Magazine Grotesk', sans-serif;
     font-weight: 400;
 }
@@ -181,10 +186,10 @@ html {
 #coins {
     display: flex;
     flex-flow: row wrap;
-    gap: 40px;
     align-items: center;
     margin-top: 40px;
     position: relative;
+    justify-content: space-between;
 }
 
 #coins .btn {
@@ -193,7 +198,7 @@ html {
     max-height: 376px;
     position: relative;
     overflow: hidden;
-    /* margin-bottom: calc(.05 * (100vw - 72px)); */
+    margin-bottom: calc(.05 * (100vw - 72px));
 }
 
 #coins .btn .coin-link {
@@ -393,10 +398,6 @@ html {
     .coin-name {
         font-size: 2em!important;
     }
-
-    #coins {
-        justify-content: space-around;
-    }
 }
 
 @media screen and (max-width: 900px){
@@ -418,6 +419,14 @@ html {
         margin-bottom: 40px;
     }
 
+    .first-col {
+        display: none;
+    }
+
+    #filter-feature {
+        margin: 0 0 24px 0;
+    }
+
     #coin-text {
         padding: 0;
         margin: 32px 0;
@@ -426,7 +435,6 @@ html {
     }
 
     #coins {
-        justify-content: space-around;
         margin: 0;
     }
 
@@ -470,9 +478,9 @@ html {
     #coin-text {
         font-size: 28px;
     }
-
-    .first-col {
-        display: none;
+    
+    #crypto-filters {
+        width: 100%;
     }
 
     .second-col span {
@@ -500,6 +508,10 @@ html {
     width: 100%;
 }
 
+#filter-feature {
+    margin-top: 16px;
+}
+
 .filter-invi {
     display: none;
 }
@@ -521,7 +533,7 @@ html {
 }
 
 #filter-label {
-    font-size: clamp(24px, 3.5vw, 32px);
+    font-size: clamp(16px, 2vw, 28px);
     font-family: "Magazine Grotesk", sans-serif;
 }
 
