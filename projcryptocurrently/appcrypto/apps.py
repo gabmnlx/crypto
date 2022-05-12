@@ -7,4 +7,5 @@ class AppcryptoConfig(AppConfig):
 
     def ready(self):
         from jobs import updater
+        print('Running background job processes...')
         updater.start()

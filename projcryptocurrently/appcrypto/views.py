@@ -10,6 +10,8 @@ from sentiment_analyzer.extraction import create_var, create_api, search_to_df, 
 from sentiment_analyzer.cleaner import clean
 from sentiment_analyzer.analyzer import analyzerOutput
 
+from jobs.save import return_graph_view
+
 
 from datetime import datetime, date
 import calendar
@@ -125,5 +127,6 @@ def coinview(request, coin_name):
     context['coin_ngram'] = coin_ngram(coin_name)
     context['coin_tfidf'] = coin_tfidf(coin_name)
     context['coin_wordcloud'] = coin_wordcloud(coin_name)
+    context['graph_folder'] = return_graph_view()
 
     return render(request, 'coin.html', context)
