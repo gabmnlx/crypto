@@ -1,5 +1,6 @@
 import tweepy
 import pandas as pd
+from jobs.save import return_save
 # import warnings
 
 # Suppress all warnings
@@ -14,6 +15,8 @@ def create_var():
     access_token = '1259565361-5k2vVN8qKjB1glxy2LlsofvXhQzoFTd9XCcKAWy'
     access_token_secret = 'Yeh7ctB0v0bqLq5uEi8QPdU9ubyo8n0Wnh1QFClDm3MAP'
     return consumer_key, consumer_key_secret, access_token, access_token_secret
+
+consumer_key, consumer_key_secret, access_token, access_token_secret = create_var()
 
 def create_api(consumer_key, consumer_key_secret, access_token, access_token_secret):
     auth = tweepy.OAuthHandler(consumer_key, consumer_key_secret)
@@ -35,12 +38,12 @@ def search_to_df(search_results):
     return tweets_df
 
 # Extract tweets
-# def extract(consumer_key, consumer_key_secret):
-#     coin = ["Bitcoin","BNB","Ethereum","Tether","USD Coin","XRP"]
-#     for x in range(0,len(coin)):
-#         api = create_api(consumer_key, consumer_key_secret)
-#         search_results = search_tweets(api,coin[x], ignore_rt=True, max_tweets=400)
-#         tweets = search_to_df(search_results)
-#         tweets.to_csv("out/" + coin[x] + ".csv", index=False)
-#         print("Extracting " + coin[x] + " tweets")
-    
+def extract(consumer_key, consumer_key_secret):
+    save_destination = return_save()
+    coin = ["Bitcoin","BNB","Ethereum","Tether","USD Coin","XRP"]
+    for x in range(0,len(coin)):
+        print("Extracting " + coin[x] + " tweets")
+        api = create_api(consumer_key, consumer_key_secret, access_token, access_token_secret)
+        search_results = search_tweets(api,coin[x], ignore_rt=True, max_tweets=400)
+        tweets = search_to_df(search_results)
+        tweets.to_csv(save_destination + coin[x] + ".csv", index=False)
