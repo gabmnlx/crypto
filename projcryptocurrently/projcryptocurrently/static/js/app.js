@@ -2,6 +2,7 @@ function showTime() {
     let current = new Date(); 
     let hr = current.getHours();
     let min = current.getMinutes();
+    let secs = current.getSeconds();
     let dt = current.getDate();
     let mon = current.getMonth();
     let session = "AM";
@@ -25,6 +26,11 @@ function showTime() {
 
     document.getElementById("date").innerText = date;
     document.getElementById("time").innerText = day + ", " + time;
+
+    if (min == "00" && secs == "00") {
+        console.log("Reloading...")
+        location.reload()
+    }
 
     let t = setTimeout(function(){ showTime() }, 1000);
 }
@@ -271,3 +277,10 @@ function resetButtonClickv2() {
 
 document.getElementById("filter-button").addEventListener("click", filterButtonClick)
 document.getElementById("reset-button").addEventListener("click", resetButtonClickv2)
+
+
+if (!window.localStorage.getItem("firstTime")) {
+    document.getElementById("tour-modal").style = `display: block;`
+    window.localStorage.setItem("firstTime", false)
+}
+
