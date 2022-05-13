@@ -151,7 +151,7 @@ function filterButtonClick() {
             positiveFlucsList[i] = positiveFlucsList[i].slice(1,-1)
         }
         for (var j = 0; j<positiveFlucsList.length; j++) {
-            document.getElementById(positiveFlucsList[j]).classList.add("filter-invi")
+            document.getElementById(positiveFlucsList[j]).classList.add("filter-opacity-50")
         }
     }
     else if (selectedFilterValue == "negative-fluctuation") {
@@ -162,7 +162,7 @@ function filterButtonClick() {
             positiveFlucsList[i] = positiveFlucsList[i].slice(1,-1)
         }
         for (var j = 0; j<positiveFlucsList.length; j++) {
-            document.getElementById(positiveFlucsList[j]).classList.add("filter-invi")
+            document.getElementById(positiveFlucsList[j]).classList.add("filter-opacity-50")
         }
     }
     else if (selectedFilterValue == "max-positive-sentiment") {
@@ -219,7 +219,7 @@ function filterButtonClick() {
         const listOfMorePositive = JSON.parse(divContent)
         for (var i=0;i<coinList.length;i++) {
             if (!listOfMorePositive.includes(i)) {
-                document.getElementById(coinList[i]).classList.add("filter-invi")
+                document.getElementById(coinList[i]).classList.add("filter-opacity-50")
             }
         }
     }
@@ -229,7 +229,7 @@ function filterButtonClick() {
         const listOfMoreNegative = JSON.parse(divContent)
         for (var i=0;i<coinList.length;i++) {
             if (!listOfMoreNegative.includes(i)) {
-                document.getElementById(coinList[i]).classList.add("filter-invi")
+                document.getElementById(coinList[i]).classList.add("filter-opacity-50")
             }
         }
     }

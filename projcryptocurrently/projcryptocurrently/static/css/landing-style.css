@@ -357,7 +357,7 @@ html {
 #modal-content p {
     font-family: 'Magazine Grotesk';
     font-size: clamp(14px, 3.5vw, 20px);
-    margin: 24px 0;
+    margin: 40px 0 24px;
     font-weight: normal;
 }
 
@@ -502,6 +502,10 @@ html {
     #down-link {
         display: flex;
     }
+
+    #modal-content  p {
+        margin: 28px 0 16px;
+    }
 }
 
 .coin-link {
@@ -574,5 +578,6 @@ html {
 }
 
 #model-ok {
+    margin-top: 20px;
     padding: 8px;
 }
