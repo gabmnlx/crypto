@@ -130,3 +130,7 @@ def coinview(request, coin_name):
     context['graph_folder'] = return_graph_view()
 
     return render(request, 'coin.html', context)
+
+def reachview(request):
+    context = {}
+    return render(request, 'reach.html', context)

@@ -5,15 +5,48 @@
 
 {% block styles %}
 <link rel="stylesheet" href="{% static 'css/landing-style.css' %}" type="text/css">
+<style>
+    body {
+        background-color: rgb(231, 231, 231)!important;
+    }
+</style>
 {% endblock %}
 
 {% block header %} {% endblock %}
 
 {% block content %}
 
-<div class="container">
+<div class="reach-container">
+    <button onclick="history.back()"><img id="back-button" src="{% static 'css/images/left-50.png' %}" alt="Back Button"></button>
     <h1>Talk to the Devs</h1>
-    
+    <div class="dev-container">
+        <div class="dev">
+            <h3>Main Developer</h3>
+            <h2>Kian Angelo Oladive</h2>
+            <a href="mailto:kian.oladive@obf.ateneo.edu">kian.oladive<span class="at">@</span>obf.ateneo.edu</a>
+        </div>
+        <div class="dev">
+            <h3>UI and Front End Development Lead</h3>
+            <h2>Carl Jimson Ejaus</h2>
+            <a href="mailto:carl.ejaus@obf.ateneo.edu">carl.ejaus<span class="at">@</span>obf.ateneo.edu</a>
+        </div>
+        <div class="dev">
+            <h3>Back End Development Lead</h3>
+            <h2>David Andrew Labre</h2>
+            <a href="mailto:david.labre@obf.ateneo.edu">david.labre<span class="at">@</span>obf.ateneo.edu</a>
+        </div>
+        <div class="dev">
+            <!-- <h3>QA Lead and Systems Analyst</h3> -->
+            <h3>Ang galing mo Mon</h3>
+            <h2>Mon Gabriel Lagustan</h2>
+            <a href="mailto:mon.lagustan@obf.ateneo.edu">mon.lagustan<span class="at">@</span>obf.ateneo.edu</a>
+        </div>
+        <div class="dev">
+            <h3>Data Science Lead</h3>
+            <h2>Jonas Raphael Palomo</h2>
+            <a href="mailto:jonas.palomo@obf.ateneo.edu">jonas.palomo<span class="at">@</span>obf.ateneo.edu</a>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
