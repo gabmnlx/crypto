@@ -36,26 +36,34 @@
     <section class="sentiment-result">
         <h3 id="sentiment-label">Sentiment Analysis Results</h3>
         <div class="sentiment-container">
+
             <div>
                 <h2>{{ positive }}%</h2>
                 <p>Positive Sentiments</p>
+                <span class="tooltiptext">(modify) This shows the score the positive sentiments for this cyptocurrency.</span>
             </div>
             <div>
                 <h2>{{ negative }}%</h2>
                 <p>Negative Sentiments</p>
+                <span class="tooltiptext">(modify) This shows the score the positive sentiments for this cyptocurrency.</span>
             </div>
             <div>
                 <h2>{{ compound_score }}%</h2>
                 <p>Compound Score </p>
+                <span class="tooltiptext">(modify) This shows the score the positive sentiments for this cyptocurrency.</span>
             </div>
         </div>
         <hr class="divider">
     </section>
     <section class="sentiment-graphs">
         <div class="graph"><img src="../static/graphs/{{coin_dtm}}" alt="DTM"></div>
+        <p class=graph-desc>Graph Description:(modify) This shows the score the positive sentiments for this cyptocurrency</p>
         <div class="graph"><img src="../static/graphs/{{coin_ngram}}" alt="n-gram"></div>
+        <p class=graph-desc>Graph Description:(modify) This shows the score the positive sentiments for this cyptocurrency</p>
         <div class="graph"><img src="../static/graphs/{{coin_tfidf}}" alt="tfidf"></div>
+        <p class=graph-desc>Graph Description:(modify) This shows the score the positive sentiments for this cyptocurrency</p>
         <div class="graph"><img src="../static/graphs/{{coin_wordcloud}}" alt="wordcloud"></div>
+        <p class=graph-desc>Graph Description:(modify) This shows the score the positive sentiments for this cyptocurrency</p>
     </div>
 <!-- <script src="{% static "js/refresh.js" %}" type="text/javascript" defer></script> -->
 {% endblock %}

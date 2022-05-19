@@ -410,10 +410,19 @@ button {
     width: 80%;
 }
 
+.modal-top {
+    display: flex;
+}
+
 #modal-content h3 {
     font-family: 'Blatant';
-    font-size: clamp(24px, 5vw, 32px);
+    font-size: clamp(24px, 5vw, 40px);
     margin-bottom: 24px;
+}
+
+#modal-content h2 {
+    font-family: 'Magazine Grotesk', sans-serif;
+    font-size: clamp(16px, 4vw, 28px);
 }
 
 #modal-content p {
@@ -431,14 +440,14 @@ button {
   
 #modal-ok {
     display: block;
-    font-family: 'Blatant';
+    font-family: 'Magazine Grotesk';
     background-color: rgb(27, 27, 27);
     padding: 16px;
     width: clamp(64px, 9vw, 120px);
+    height: fit-content;
     text-align: center;
     color: rgb(255, 255, 255);
-    font-size: clamp(16px, 2.5vw, 28px);
-    font-weight: bold;
+    font-size: clamp(14px, 2.2vw, 24px);
     margin-right: 0;
     margin-left: auto;
     border-radius: 28px;
