@@ -443,11 +443,11 @@ button {
     font-family: 'Magazine Grotesk';
     background-color: rgb(27, 27, 27);
     padding: 16px;
-    width: clamp(64px, 9vw, 120px);
+    width: clamp(54px, 7vw, 80px);
     height: fit-content;
     text-align: center;
     color: rgb(255, 255, 255);
-    font-size: clamp(14px, 2.2vw, 24px);
+    font-size: clamp(12px, 2.2vw, 20px);
     margin-right: 0;
     margin-left: auto;
     border-radius: 28px;
