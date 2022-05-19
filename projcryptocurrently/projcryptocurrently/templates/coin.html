@@ -50,14 +50,14 @@
             <div>
                 <h2>{{ compound_score }}%</h2>
                 <p>Compound Score </p>
-                <span class="tooltiptext">The compound score is the sum of positive, negative & neutral scores which is then normalized between -1(most extreme negative) and +1 (most extreme positive).</span>
+                <span class="tooltiptext">The compound score is the sum of positive, negative & neutral scores which is then normalized between -1, the most extreme negative, and +1, most extreme positive.</span>
             </div>
         </div>
         <hr class="divider">
     </section>
     <section class="sentiment-graphs">
         <div class="graph"><img src="../static/{{graph_folder}}/{{coin_dtm}}" alt="DTM"></div>
-        <p class=graph-desc>Graph Description: The Document Term Matrix describes the frequency of terms that occur in a collection of documents (tweets).</p>
+        <p class=graph-desc>Graph Description: The Document Term Matrix describes the frequency of terms that occur in a collection of documents or tweets.</p>
         <div class="graph"><img src="../static/{{graph_folder}}/{{coin_ngram}}" alt="n-gram"></div>
         <p class=graph-desc>Graph Description: The N-gram shows the most number of continuous sequences of words in a document.</p>
         <div class="graph"><img src="../static/{{graph_folder}}/{{coin_tfidf}}" alt="tfidf"></div>
