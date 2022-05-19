@@ -40,30 +40,30 @@
             <div>
                 <h2>{{ positive }}%</h2>
                 <p>Positive Sentiments</p>
-                <span class="tooltiptext">(modify) This shows the score the positive sentiments for this cyptocurrency.</span>
+                <span class="tooltiptext">This shows the score the positive sentiment for this cyptocurrency.</span>
             </div>
             <div>
                 <h2>{{ negative }}%</h2>
                 <p>Negative Sentiments</p>
-                <span class="tooltiptext">(modify) This shows the score the positive sentiments for this cyptocurrency.</span>
+                <span class="tooltiptext">This shows the score the negative sentiment for this cyptocurrency.</span>
             </div>
             <div>
                 <h2>{{ compound_score }}%</h2>
                 <p>Compound Score </p>
-                <span class="tooltiptext">(modify) This shows the score the positive sentiments for this cyptocurrency.</span>
+                <span class="tooltiptext">The compound score is the sum of positive, negative & neutral scores which is then normalized between -1(most extreme negative) and +1 (most extreme positive).</span>
             </div>
         </div>
         <hr class="divider">
     </section>
     <section class="sentiment-graphs">
-        <div class="graph"><img src="../static/graphs/{{coin_dtm}}" alt="DTM"></div>
-        <p class=graph-desc>Graph Description:(modify) This shows the score the positive sentiments for this cyptocurrency</p>
-        <div class="graph"><img src="../static/graphs/{{coin_ngram}}" alt="n-gram"></div>
-        <p class=graph-desc>Graph Description:(modify) This shows the score the positive sentiments for this cyptocurrency</p>
-        <div class="graph"><img src="../static/graphs/{{coin_tfidf}}" alt="tfidf"></div>
-        <p class=graph-desc>Graph Description:(modify) This shows the score the positive sentiments for this cyptocurrency</p>
-        <div class="graph"><img src="../static/graphs/{{coin_wordcloud}}" alt="wordcloud"></div>
-        <p class=graph-desc>Graph Description:(modify) This shows the score the positive sentiments for this cyptocurrency</p>
+        <div class="graph"><img src="../static/{{graph_folder}}/{{coin_dtm}}" alt="DTM"></div>
+        <p class=graph-desc>Graph Description: The Document Term Matrix describes the frequency of terms that occur in a collection of documents (tweets).</p>
+        <div class="graph"><img src="../static/{{graph_folder}}/{{coin_ngram}}" alt="n-gram"></div>
+        <p class=graph-desc>Graph Description: The N-gram shows the most number of continuous sequences of words in a document.</p>
+        <div class="graph"><img src="../static/{{graph_folder}}/{{coin_tfidf}}" alt="tfidf"></div>
+        <p class=graph-desc>Graph Description: The Term Frequency-Inverse Document Frequency uses the frequency of words to determine how relevant those words are to a given document.</p>
+        <div class="graph"><img src="../static/{{graph_folder}}/{{coin_wordcloud}}" alt="wordcloud"></div>
+        <p class=graph-desc>Graph Description: The WordCloud is a visual representation object that shows the most frequent word with bigger and bolder letters, and with different colors</p>
     </div>
 <!-- <script src="{% static "js/refresh.js" %}" type="text/javascript" defer></script> -->
 {% endblock %}
