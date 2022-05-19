@@ -139,6 +139,13 @@ const usdcDiv = document.getElementById("usd")
 const bnbDiv = document.getElementById("bnb")
 const tetherDiv = document.getElementById("tether")
 
+const bitcoinDIvPic = document.getElementById("bitcoin-logo")
+const ethDivPic = document.getElementById("ethereum-logo")
+const xrpDivPic = document.getElementById("xrp-logo")
+const usdcDivPic = document.getElementById("usd-logo")
+const bnbDicvPic = document.getElementById("bnb-logo")
+const tetherDivPic = document.getElementById("tether-logo")
+
 function filterButtonClick() {
     const selectedFilterValue = document.getElementById("crypto-filters").value 
     const coinList = ["bitcoin", "ethereum", "xrp", "usd", "bnb", "tether"]
@@ -147,11 +154,14 @@ function filterButtonClick() {
         resetButtonClick();
         const divContent = document.getElementById("negative-fluc-filter").textContent.slice(1,-1)
         var positiveFlucsList = divContent.split(", ")
+        console.log(positiveFlucsList)
         for (var i = 0; i<positiveFlucsList.length; i++) {
             positiveFlucsList[i] = positiveFlucsList[i].slice(1,-1)
         }
         for (var j = 0; j<positiveFlucsList.length; j++) {
+            document.getElementById(positiveFlucsList[j]).classList.add("filter-gray-bg")
             document.getElementById(positiveFlucsList[j]).classList.add("filter-opacity-50")
+            document.getElementById(positiveFlucsList[j]+"-logo").classList.add("filter-gray-pic")
         }
     }
     else if (selectedFilterValue == "negative-fluctuation") {
@@ -162,7 +172,9 @@ function filterButtonClick() {
             positiveFlucsList[i] = positiveFlucsList[i].slice(1,-1)
         }
         for (var j = 0; j<positiveFlucsList.length; j++) {
+            document.getElementById(positiveFlucsList[j]).classList.add("filter-gray-bg")
             document.getElementById(positiveFlucsList[j]).classList.add("filter-opacity-50")
+            document.getElementById(positiveFlucsList[j]+"-logo").classList.add("filter-gray-pic")
         }
     }
     else if (selectedFilterValue == "max-positive-sentiment") {
@@ -170,7 +182,9 @@ function filterButtonClick() {
         const divContent = document.getElementById("max-positive-sentiment").textContent
         for (var i=0; i<coinList.length;i++) {
             if (i!=parseInt(divContent)) {
+                document.getElementById(coinList[i]).classList.add("filter-gray-bg")
                 document.getElementById(coinList[i]).classList.add("filter-opacity-50")
+                document.getElementById(coinList[i]+"-logo").classList.add("filter-gray-pic")
             }
             else {
                 document.getElementById(coinList[i]).classList.add("filter-highlight-green")
@@ -182,7 +196,9 @@ function filterButtonClick() {
         const divContent = document.getElementById("min-positive-sentiment").textContent
         for (var i=0; i<coinList.length;i++) {
             if (i!=parseInt(divContent)) {
+                document.getElementById(coinList[i]).classList.add("filter-gray-bg")
                 document.getElementById(coinList[i]).classList.add("filter-opacity-50")
+                document.getElementById(coinList[i]+"-logo").classList.add("filter-gray-pic")
             }
             else {
                 document.getElementById(coinList[i]).classList.add("filter-highlight-red")
@@ -194,7 +210,9 @@ function filterButtonClick() {
         const divContent = document.getElementById("max-negative-sentiment").textContent
         for (var i=0; i<coinList.length;i++) {
             if (i!=parseInt(divContent)) {
+                document.getElementById(coinList[i]).classList.add("filter-gray-bg")
                 document.getElementById(coinList[i]).classList.add("filter-opacity-50")
+                document.getElementById(coinList[i]+"-logo").classList.add("filter-gray-pic")
             }
             else {
                 document.getElementById(coinList[i]).classList.add("filter-highlight-red")
@@ -206,7 +224,9 @@ function filterButtonClick() {
         const divContent = document.getElementById("min-negative-sentiment").textContent
         for (var i=0; i<coinList.length;i++) {
             if (i!=parseInt(divContent)) {
+                document.getElementById(coinList[i]).classList.add("filter-gray-bg")
                 document.getElementById(coinList[i]).classList.add("filter-opacity-50")
+                document.getElementById(coinList[i]+"-logo").classList.add("filter-gray-pic")
             }
             else {
                 document.getElementById(coinList[i]).classList.add("filter-highlight-green")
@@ -219,7 +239,9 @@ function filterButtonClick() {
         const listOfMorePositive = JSON.parse(divContent)
         for (var i=0;i<coinList.length;i++) {
             if (!listOfMorePositive.includes(i)) {
+                document.getElementById(coinList[i]).classList.add("filter-gray-bg")
                 document.getElementById(coinList[i]).classList.add("filter-opacity-50")
+                document.getElementById(coinList[i]+"-logo").classList.add("filter-gray-pic")
             }
         }
     }
@@ -229,7 +251,9 @@ function filterButtonClick() {
         const listOfMoreNegative = JSON.parse(divContent)
         for (var i=0;i<coinList.length;i++) {
             if (!listOfMoreNegative.includes(i)) {
+                document.getElementById(coinList[i]).classList.add("filter-gray-bg")
                 document.getElementById(coinList[i]).classList.add("filter-opacity-50")
+                document.getElementById(coinList[i]+"-logo").classList.add("filter-gray-pic")
             }
         }
     }
@@ -244,11 +268,17 @@ function resetButtonClick() {
     tetherDiv.classList.remove("filter-invi")
 
     
+    bitcoinDIv.classList.remove("filter-gray-bg")
     bitcoinDIv.classList.remove("filter-opacity-50")
+    ethDiv.classList.remove("filter-gray-bg")
     ethDiv.classList.remove("filter-opacity-50")
+    xrpDiv.classList.remove("filter-gray-bg")
     xrpDiv.classList.remove("filter-opacity-50")
+    usdcDiv.classList.remove("filter-gray-bg")
     usdcDiv.classList.remove("filter-opacity-50")
+    bnbDiv.classList.remove("filter-gray-bg")
     bnbDiv.classList.remove("filter-opacity-50")
+    tetherDiv.classList.remove("filter-gray-bg")
     tetherDiv.classList.remove("filter-opacity-50")
 
     
@@ -266,6 +296,13 @@ function resetButtonClick() {
     usdcDiv.classList.remove("filter-highlight-red")
     bnbDiv.classList.remove("filter-highlight-red")
     tetherDiv.classList.remove("filter-highlight-red")
+
+    bitcoinDIvPic.classList.remove("filter-gray-pic")
+    ethDivPic.classList.remove("filter-gray-pic")
+    xrpDivPic.classList.remove("filter-gray-pic")
+    usdcDivPic.classList.remove("filter-gray-pic")
+    bnbDicvPic.classList.remove("filter-gray-pic")
+    tetherDivPic.classList.remove("filter-gray-pic")
 }
 
 function resetButtonClickv2() {

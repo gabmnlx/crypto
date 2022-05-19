@@ -665,6 +665,14 @@ button {
     box-shadow: 10px 10px #8a5757;
 }
 
+.filter-gray-bg {
+    background-color:rgb(189, 184, 184) !important;
+}
+
+.filter-gray-pic {
+    filter: grayscale(100%) !important;
+}
+
 #filter-label {
     font-size: clamp(20px, 2vw, 28px);
     font-family: "Magazine Grotesk", sans-serif;
@@ -695,3 +703,4 @@ button {
     color: black;
     background-color: rgb(238, 238, 238);
 }
+
